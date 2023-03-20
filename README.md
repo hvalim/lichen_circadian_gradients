@@ -1,5 +1,7 @@
 # lichen_circadian_gradients
 
+[splash](NMDS_circadian_nucl_div_Upust_15pops_BIO1.pdf)
+
 This repository contains the analyses for the manuscript 
 
 Valim H., Dal Grande F., Schmitt I. Circadian clock and temperature-associated genes vary along climate gradients in lichenized fungi.
