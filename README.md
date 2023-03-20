@@ -4,20 +4,19 @@
 
 This repository contains the analyses for the manuscript 
 
-Valim H., Dal Grande F., Schmitt I. Circadian clock and temperature-associated genes vary along climate gradients in lichenized fungi.
+> Valim H., Dal Grande F., Schmitt I. Circadian clock and temperature-associated genes vary along climate gradients in lichenized fungi.
 
 # Contact
 
-Henrique Valim
-
-Postdoc 
+**Henrique Valim**\
+[Postdoc](henrique.valim@senckenberg.de) 
 
 # Contents
 
-Part 1: pool-seq with popoolation2
-Part 2: diversity analysis with popoolation1 and vegan
-Part 3: analysis of circadian alleles along elevation gradients
-Part 4: dN/dS analysis with HyPhy
+- **Part 1:** pool-seq with popoolation2
+- **Part 2:** diversity analysis with popoolation1 and vegan
+- **Part 3:** analysis of circadian alleles along elevation gradients
+- **Part 4:** dN/dS analysis with HyPhy
 
 # Data availability
 
