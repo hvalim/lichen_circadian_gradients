@@ -1,6 +1,6 @@
 # lichen_circadian_gradients
 
-[splash](NMDS_circadian_nucl_div_Upust_15pops_BIO1.pdf)
+![splash](NMDS_circadian_nucl_div_Upust_15pops_BIO1.pdf)
 
 This repository contains the analyses for the manuscript 
 
