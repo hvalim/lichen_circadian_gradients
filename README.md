@@ -15,7 +15,7 @@ This repository contains the analyses for the manuscript:
 
 # Data availability
 
-Raw sequence reads were deposited in the [Sequence Read Archive](https://www.ncbi.nlm.nih.gov/sra), under the BioProject PRJEB11664 for the Umbilicaria pustulata reference genome and PRJNA820300 for Umbilicaria phaea reference genome. The data for this study have been deposited in the [European Nucleotide Archive (ENA](https://www.ebi.ac.uk/ena/browser/home), at EMBL-EBI under accession numbers PRJEB69222 (U. pustulata Spanish gradients), PRJEB11664 (U. pustulata Sardinia gradient) and PRJNA693984 (U. phaea gradients)
+Raw sequence reads were deposited in the [Sequence Read Archive](https://www.ncbi.nlm.nih.gov/sra), under the BioProject PRJEB11664 for the Umbilicaria pustulata reference genome and PRJNA820300 for Umbilicaria phaea reference genome. The data for this study have been deposited in the [European Nucleotide Archive (ENA)](https://www.ebi.ac.uk/ena/browser/home) at EMBL-EBI under accession numbers PRJEB69222 (U. pustulata Spanish gradients), PRJEB11664 (U. pustulata Sardinia gradient) and PRJNA693984 (U. phaea gradients)
 
 # Required software
 
