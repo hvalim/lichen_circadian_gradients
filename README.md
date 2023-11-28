@@ -26,7 +26,7 @@ The two reference genomes used in this analysis and their annotations can be fou
 
 # Required software
 
-A full list of the required software, which is also specified within each Part of the analysis:
+A full list of the required software, which is also specified within each Part of the analysis.
 
 
 
