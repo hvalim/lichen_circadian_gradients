@@ -29,23 +29,22 @@ To do this, we will first extract the circadian loci of interest and then use a 
 
 # U. pustulata
 
-awk -F'\t' '$1~/scaffold_12/ && $2 >= 838899 && $2 <= 842573' /phylodata/fdalgrande/TRIMMED_PoolSeq_3gradients/subsampled_30_filtered.IT123456_ESii123456_ESi123.sync > Upust_WC1_alleles.sync
-awk -F'\t' '$1~/scaffold_1/ && $2 >= 3239713 && $2 <= 3241276' /phylodata/fdalgrande/TRIMMED_PoolSeq_3gradients/subsampled_30_filtered.IT123456_ESii123456_ESi123.sync > Upust_WC2_alleles.sync
-awk -F'\t' '$1~/scaffold_1/ && $2 >= 1991889 && $2 <= 1994328' /phylodata/fdalgrande/TRIMMED_PoolSeq_3gradients/subsampled_30_filtered.IT123456_ESii123456_ESi123.sync > Upust_WC_like1_alleles.sync
-awk -F'\t' '$1~/scaffold_6/ && $2 >= 3773 && $2 <= 6045' /phylodata/fdalgrande/TRIMMED_PoolSeq_3gradients/subsampled_30_filtered.IT123456_ESii123456_ESi123.sync > Upust_WC_like2_alleles.sync
-awk -F'\t' '$1~/scaffold_9/ && $2 >= 515221 && $2 <= 518690' /phylodata/fdalgrande/TRIMMED_PoolSeq_3gradients/subsampled_30_filtered.IT123456_ESii123456_ESi123.sync > Upust_FRHa_alleles.sync
-awk -F'\t' '$1~/scaffold_5/ && $2 >= 1250325 && $2 <= 1254491' /phylodata/fdalgrande/TRIMMED_PoolSeq_3gradients/subsampled_30_filtered.IT123456_ESii123456_ESi123.sync > Upust_FRHb_alleles.sync
-awk -F'\t' '$1~/scaffold_12/ && $2 >= 981549 && $2 <= 984260' /phylodata/fdalgrande/TRIMMED_PoolSeq_3gradients/subsampled_30_filtered.IT123456_ESii123456_ESi123.sync > Upust_FRQ_alleles.sync
-awk -F'\t' '$1~/scaffold_14/ && $2 >= 221669 && $2 <= 223362' /phylodata/fdalgrande/TRIMMED_PoolSeq_3gradients/subsampled_30_filtered.IT123456_ESii123456_ESi123.sync > Upust_CK1_alleles.sync
-awk -F'\t' '$1~/scaffold_13/ && $2 >= 393821 && $2 <= 394250' /phylodata/fdalgrande/TRIMMED_PoolSeq_3gradients/subsampled_30_filtered.IT123456_ESii123456_ESi123.sync > Upust_CCG1_alleles.sync
-awk -F'\t' '$1~/scaffold_24/ && $2 >= 136236 && $2 <= 136960' /phylodata/fdalgrande/TRIMMED_PoolSeq_3gradients/subsampled_30_filtered.IT123456_ESii123456_ESi123.sync > Upust_CCG6_alleles.sync
-awk -F'\t' '$1~/scaffold_5/ && $2 >= 293617 && $2 <= 295671' /phylodata/fdalgrande/TRIMMED_PoolSeq_3gradients/subsampled_30_filtered.IT123456_ESii123456_ESi123.sync > Upust_CCG7_alleles.sync
-awk -F'\t' '$1~/scaffold_4/ && $2 >= 131206 && $2 <= 132764' /phylodata/fdalgrande/TRIMMED_PoolSeq_3gradients/subsampled_30_filtered.IT123456_ESii123456_ESi123.sync > Upust_CCG8_alleles.sync
-awk -F'\t' '$1~/scaffold_7/ && $2 >= 1769080 && $2 <= 1771706' /phylodata/fdalgrande/TRIMMED_PoolSeq_3gradients/subsampled_30_filtered.IT123456_ESii123456_ESi123.sync > Upust_CCG9_alleles.sync
+awk -F'\t' '$1~/scaffold_12/ && $2 >= 838899 && $2 <= 842573' subsampled_30_filtered.IT123456_ESii123456_ESi123.sync > Upust_WC1_alleles.sync
+awk -F'\t' '$1~/scaffold_1/ && $2 >= 3239713 && $2 <= 3241276' subsampled_30_filtered.IT123456_ESii123456_ESi123.sync > Upust_WC2_alleles.sync
+awk -F'\t' '$1~/scaffold_1/ && $2 >= 1991889 && $2 <= 1994328' subsampled_30_filtered.IT123456_ESii123456_ESi123.sync > Upust_WC_like1_alleles.sync
+awk -F'\t' '$1~/scaffold_6/ && $2 >= 3773 && $2 <= 6045' subsampled_30_filtered.IT123456_ESii123456_ESi123.sync > Upust_WC_like2_alleles.sync
+awk -F'\t' '$1~/scaffold_9/ && $2 >= 515221 && $2 <= 518690' subsampled_30_filtered.IT123456_ESii123456_ESi123.sync > Upust_FRHa_alleles.sync
+awk -F'\t' '$1~/scaffold_5/ && $2 >= 1250325 && $2 <= 1254491' subsampled_30_filtered.IT123456_ESii123456_ESi123.sync > Upust_FRHb_alleles.sync
+awk -F'\t' '$1~/scaffold_12/ && $2 >= 981549 && $2 <= 984260' subsampled_30_filtered.IT123456_ESii123456_ESi123.sync > Upust_FRQ_alleles.sync
+awk -F'\t' '$1~/scaffold_14/ && $2 >= 221669 && $2 <= 223362' subsampled_30_filtered.IT123456_ESii123456_ESi123.sync > Upust_CK1_alleles.sync
+awk -F'\t' '$1~/scaffold_13/ && $2 >= 393821 && $2 <= 394250' subsampled_30_filtered.IT123456_ESii123456_ESi123.sync > Upust_CCG1_alleles.sync
+awk -F'\t' '$1~/scaffold_24/ && $2 >= 136236 && $2 <= 136960' subsampled_30_filtered.IT123456_ESii123456_ESi123.sync > Upust_CCG6_alleles.sync
+awk -F'\t' '$1~/scaffold_5/ && $2 >= 293617 && $2 <= 295671' subsampled_30_filtered.IT123456_ESii123456_ESi123.sync > Upust_CCG7_alleles.sync
+awk -F'\t' '$1~/scaffold_4/ && $2 >= 131206 && $2 <= 132764' subsampled_30_filtered.IT123456_ESii123456_ESi123.sync > Upust_CCG8_alleles.sync
+awk -F'\t' '$1~/scaffold_7/ && $2 >= 1769080 && $2 <= 1771706' subsampled_30_filtered.IT123456_ESii123456_ESi123.sync > Upust_CCG9_alleles.sync
 
 # Finally, combine all files together:
 cat Upust*alleles.sync > Upust_circadian_alleles.sync
-
 
 # U. phaea
 
@@ -73,18 +72,13 @@ We can now run Fisher's exact test (FET) on just the circadian loci of interest:
 
 # U. pustulata
 
-perl /home/hvalim/tools/popoolation2_1201/fisher-test.pl --input Upust_circadian_alleles.sync --output Upust_circadian_alleles3.fet --min-count 3 --min-coverage 10 --max-coverage 100 --suppress-noninformative
-
-# tried this for the not downsampled fisher's exact test:
-perl /home/hvalim/tools/popoolation2_1201/fisher-test.pl --input Upust_circadian_alleles2.sync --output Upust_circadian_alleles2.fet --min-count 3 --min-coverage 3 --max-coverage 200 --suppress-noninformative
-
+perl popoolation2_1201/fisher-test.pl --input Upust_circadian_alleles.sync --output Upust_circadian_alleles.fet --min-count 3 --min-coverage 10 --max-coverage 100 --suppress-noninformative
 
 # U. phaea
 
-perl /home/hvalim/tools/popoolation2_1201/fisher-test.pl --input Uph_circadian_alleles.sync --output Uph_circadian_alleles3.fet --min-count 3 --min-coverage 10 --max-coverage 100 --suppress-noninformative
+perl popoolation2_1201/fisher-test.pl --input Uph_circadian_alleles.sync --output Uph_circadian_alleles.fet --min-count 3 --min-coverage 10 --max-coverage 100 --suppress-noninformative
 
 ```
-
 
 Now, to continue on to extracting significant loci from each circadian clock gene
 
@@ -105,7 +99,7 @@ library(tidyr)
 library(reshape2)
 
 # load FET (Fisher's exact test) significances for all circadian SNPs
-Fst_scores_snps <- read.table("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/5_Gradient_analysis_Upustulata/Upust_circadian_alleles4.fet", sep = "\t", header = F, check.names = F)
+Fst_scores_snps <- read.table("Upust_circadian_alleles.fet", sep = "\t", header = F, check.names = F)
 
 # clean up file for R usage
 names(Fst_scores_snps) <- Fst_scores_snps[1,]
@@ -136,7 +130,7 @@ names(Fst_scores_snps1_cleaned) <- col_names
 melted <- melt(Fst_scores_snps1_cleaned, id = c("chr","pos","cov"), variable.name = "Pairwise", value.name = "FET")
 
 # merge with Pairwise labels from  Fst per-gene data set (we are only using the labels, so it doesn't matter that only FRQ, WC1 and WC2 are in this data set)
-Fst_scores__genes_circadian <- read.csv("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/5_Gradient_analysis_Upustulata/FRQ_WC1_WC2_Fst_data.csv", header = T)
+Fst_scores__genes_circadian <- read.csv("FRQ_WC1_WC2_Fst_data.csv", header = T)
 Pairwise_labels <- Fst_scores__genes_circadian[,c(1:4)]
 merged <- merge(melted, Pairwise_labels, by ="Pairwise")
 merged$pos <- as.factor(merged$pos) 
@@ -149,13 +143,9 @@ merged_unique_sig <- merged %>% group_by(pos,chr) %>% slice(which.max(FET)) %>% 
 
 merged_unique_sig1 <- merged_unique_sig[merged_unique_sig$Elevation_Type == "Mixed",]
 
-#merged_unique_sig2 <- merged_unique_sig[merged_unique_sig$Pairwise == "1-6" | merged_unique_sig$Pairwise == "1-12" | merged_unique_sig$Pairwise == "5-15" | 
-#                                          merged_unique_sig$Pairwise == "6-7" | merged_unique_sig$Pairwise == "7-12" | merged_unique_sig$Pairwise == "7-15" | 
-#                                          merged_unique_sig$Pairwise == "6-13" | merged_unique_sig$Pairwise == "12-13" | merged_unique_sig$Pairwise == "13-15" ,]
-
 # write this file 
-write.table(merged, file = "~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/5_Gradient_analysis_Upustulata/SNPs_circadian_unique_all4.fet", sep = "\t", na = "", quote = F, row.names = F, col.names = T)
-write.table(merged_unique_sig1, file = "~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/5_Gradient_analysis_Upustulata/SNPs_circadian_significant4.fet", sep = "\t", na = "", quote = F, row.names = F, col.names = T)
+write.table(merged, file = "SNPs_circadian_unique_all.fet", sep = "\t", na = "", quote = F, row.names = F, col.names = T)
+write.table(merged_unique_sig1, file = "SNPs_circadian_significant.fet", sep = "\t", na = "", quote = F, row.names = F, col.names = T)
 
 ```
 
@@ -212,33 +202,37 @@ subset_all1$FET <- as.numeric(subset_all1$FET)
         axis.line.x = element_line(color="black"),
         axis.line.y = element_line(color="black")))
 
-ggsave(plot1, filename = "~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/5_Gradient_analysis_Upustulata/circadian_FET_SNPs.pdf", 
+ggsave(plot1, filename = "circadian_FET_SNPs.pdf", 
        height = 3, width = 15, 
        device = cairo_pdf)
 
 
-bioclim <- read.csv("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/5_Gradient_analysis_Upustulata/bioclim_15pops_raw.csv", header = T, check.names = F)
+bioclim <- read.csv("bioclim_15pops_raw.csv", header = T, check.names = F)
+
+library("RColorBrewer")
+myPalette1 <- colorRampPalette(rev(brewer.pal(11, "Spectral")))
+colors_temp <- scale_colour_gradientn(colors = myPalette1(100), limits=c(8, 20))
 
 (plot1  <- ggplot(bioclim, aes(x = site, y = Elevation, col = BIO1)) +
-    geom_point() +
+    geom_point(size=4) +
     stat_summary(geom = "line") +
     scale_x_discrete("Site") +
     scale_y_continuous("Elevation (m)") +
     scale_color_continuous("BIO1") +
-    theme_minimal(base_size=12) +
+    theme_minimal(base_size=16) +
     #facet_grid(.~region, scales = "free") +
     theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),
         axis.text.x = element_text(angle = 0, hjust = T),
         axis.line.x = element_line(color="black"),
-        axis.line.y = element_line(color="black")))
+        axis.line.y = element_line(color="black")) + 
+    colors_temp)
 
-library("RColorBrewer")
-myPalette <- colorRampPalette(brewer.pal(11, "Spectral"))
-sc <- scale_colour_gradientn(colours = myPalette(100), limits=c(1, 1600))
+myPalette2 <- colorRampPalette(brewer.pal(11, "Spectral"))
+colors_precip <- scale_colour_gradientn(colours = myPalette2(100), limits=c(1, 1600))
 
 (plot2  <- ggplot(bioclim, aes(x = site, y = Elevation, col = BIO12)) +
-    geom_point(size = 3) +
+    geom_point(size = 4) +
     stat_summary(geom = "line") +
     scale_x_discrete("Site") +
     scale_y_continuous("Elevation (m)") +
@@ -249,13 +243,14 @@ sc <- scale_colour_gradientn(colours = myPalette(100), limits=c(1, 1600))
         panel.grid.minor = element_blank(),
         axis.text.x = element_text(angle = 0, hjust = T),
         axis.line.x = element_line(color="black"),
-        axis.line.y = element_line(color="black")) +sc)
+        axis.line.y = element_line(color="black")) +
+    colors_precip)
 
-ggsave(plot1, filename = "~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/5_Gradient_analysis_Upustulata/Elevation_gradients.pdf", 
-       height = 4, width = 4, 
+ggsave(plot1, filename = "Elevation_gradients_mean_annual_temp.pdf", 
+       height = 4.25, width = 4.6, 
        device = cairo_pdf)
 
-ggsave(plot2, filename = "~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/5_Gradient_analysis_Upustulata/Elevation_gradients_precip.pdf", 
+ggsave(plot2, filename = "Elevation_gradients_precip.pdf", 
        height = 4, width = 4, 
        device = cairo_pdf)
 
@@ -278,9 +273,8 @@ library(tidyr)
 library(reshape2)
 
 # load circadian sync file and unique, significant circadian SNPs
-sync <- read.table("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/5_Gradient_analysis_Upustulata/Upust_circadian_alleles4.sync", sep = "\t", header = F, check.names = F)
-#unique <- read.table("SNPs_circadian_significant2.fet", sep = "\t", header = T, check.names = F)
-unique <- read.table("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/5_Gradient_analysis_Upustulata/SNPs_circadian_unique_all4.fet", sep = "\t", header = T, check.names = F)
+sync <- read.table("Upust_circadian_alleles.sync", sep = "\t", header = F, check.names = F)
+unique <- read.table("SNPs_circadian_unique_all.fet", sep = "\t", header = T, check.names = F)
 
 unique_subset <- unique[,c(2:4)]
 
@@ -372,7 +366,7 @@ subset_all$region <- as.factor(subset_all$region)
 
 
 # write this file 
-write.table(subset_all, file = "~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/5_Gradient_analysis_Upustulata/circadian_alleles_sync_labeled_melted4.txt", sep = "\t", na = "", quote = F, row.names = F, col.names = T)
+write.table(subset_all, file = "circadian_alleles_sync_labeled_melted.txt", sep = "\t", na = "", quote = F, row.names = F, col.names = T)
 
 ```
 
@@ -392,10 +386,8 @@ library(tidyr)
 library(reshape2)
 
 # load circadian sync file and unique, significant circadian SNPs
-sync <- read.table("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/5_Gradient_analysis_Upustulata/Upust_circadian_alleles4.sync", sep = "\t", header = F, check.names = F)
-#unique <- read.table("SNPs_circadian_significant2.fet", sep = "\t", header = T, check.names = F)
-unique_sig <- read.table("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/5_Gradient_analysis_Upustulata/SNPs_circadian_significant4.fet", sep = "\t", header = T, check.names = F)
-#unique_sig <- read.table("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/5_Gradient_analysis_Upustulata/SNPs_circadian_significant4b.fet", sep = "\t", header = T, check.names = F)
+sync <- read.table("Upust_circadian_alleles.sync", sep = "\t", header = F, check.names = F)
+unique_sig <- read.table("SNPs_circadian_significant.fet", sep = "\t", header = T, check.names = F)
 
 unique_subset <- unique_sig[,c(2:4)]
 
@@ -426,7 +418,6 @@ mdata <- sync_significant2 %>%
 # re-melt data, and set variable types properly
 mdata1 <- melt(mdata, id=c("chr","pos","cov","rc","site","pop")) 
 mdata1$pop <- as.numeric(mdata1$pop)
-#mdata1$pos <- as.factor(mdata1$pos)
 mdata1$cov <- as.numeric(mdata1$cov)
 mdata1$value <- as.numeric(mdata1$value)
 mdata1$pos <- as.numeric(mdata1$pos)
@@ -485,9 +476,8 @@ subset_CK1$region <- "CK1"
 subset_all <- rbind(subset_FRHa,subset_FRHb,subset_FRQ,subset_WC2,subset_WC_like2,subset_CCG1,subset_CCG6,subset_CCG7,subset_CCG8,subset_CCG9)
 subset_all$region <- as.factor(subset_all$region)
 
-
 # write this file 
-write.table(subset_all, file = "~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/5_Gradient_analysis_Upustulata/circadian_alleles_sync_labeled_melted4_sig.txt", sep = "\t", na = "", quote = F, row.names = F, col.names = T)
+write.table(subset_all, file = "circadian_alleles_sync_labeled_melted_sig.txt", sep = "\t", na = "", quote = F, row.names = F, col.names = T)
 
 ```
 
@@ -517,7 +507,7 @@ rm(list=ls())
 gc()
 
 # load the labeled, melted circadian sync file
-data <- read.table("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/5_Gradient_analysis_Upustulata/circadian_alleles_sync_labeled_melted4.txt", sep = "\t", header = T, check.names = F)
+data <- read.table("circadian_alleles_sync_labeled_melted.txt", sep = "\t", header = T, check.names = F)
 
 # set variables properly
 data$region <- as.factor(data$region)
@@ -685,7 +675,7 @@ data$genom_pos <- paste(data$chr,data$pos)
 data_significant_subset <- data[data$genom_pos %in% significant_loci, ]
 
 # write this file 
-write.table(data_significant_subset, file = "~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/5_Gradient_analysis_Upustulata/circadian_alleles_spearman_sig_0_05_loci4.txt", sep = "\t", na = "", quote = F, row.names = F, col.names = T)
+write.table(data_significant_subset, file = "circadian_alleles_spearman_sig_0_05_loci.txt", sep = "\t", na = "", quote = F, row.names = F, col.names = T)
 
 ```
 
@@ -715,11 +705,10 @@ rm(list=ls())
 gc()
 
 # load the file with significant loci and the bioclim file
-data <- read.table("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/5_Gradient_analysis_Upustulata/circadian_alleles_spearman_sig_0_05_loci4.txt", sep = "\t", header = T, check.names = F)
-bioclim <- read.csv("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/5_Gradient_analysis_Upustulata/bioclim_15pops_raw.csv", header = T, check.names = F)
+data <- read.table("circadian_alleles_spearman_sig_0_05_loci.txt", sep = "\t", header = T, check.names = F)
+bioclim <- read.csv("bioclim_15pops_raw.csv", header = T, check.names = F)
 
 joined_data <- merge(data,bioclim, by = c("site","pop"))
-
 
 # looking at loci significant in any of the sites (rather than all three)
 
@@ -816,9 +805,6 @@ FRHa_joined_data_focus <- rbind(FRHa_joined_data_unfixed,FRHa_joined_data_fixed,
         axis.line.x = element_line(color="black"),
         axis.line.y = element_line(color="black")))
 
-
-
-
 (plot4  <- ggplot(FRHb_joined_data, aes(x = BIO1, y = value_ratio, color = variable, linetype = site)) +
     geom_point(size = 1) +
     stat_summary(fun.data = mean_se, geom = "line") +
@@ -925,48 +911,47 @@ FRHa_joined_data_focus <- rbind(FRHa_joined_data_unfixed,FRHa_joined_data_fixed,
         axis.line.x = element_line(color="black"),
         axis.line.y = element_line(color="black")))
 
-
-pdf("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/5_Gradient_analysis_Upustulata/WC2_gradient_spearman_sig_loci_x_BIO1_sync.pdf", height = 20, width = 4)
+pdf("WC2_gradient_spearman_sig_loci_x_BIO1_sync.pdf", height = 20, width = 4)
 plot1
 dev.off() 
 
-pdf("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/5_Gradient_analysis_Upustulata/WC_like2_gradient_spearman_sig_loci_x_BIO1_sync.pdf", height = 40, width = 4)
+pdf("WC_like2_gradient_spearman_sig_loci_x_BIO1_sync.pdf", height = 40, width = 4)
 plot2
 dev.off() 
 
-pdf("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/5_Gradient_analysis_Upustulata/FRHa_gradient_spearman_sig_loci_x_BIO1_sync.pdf", height = 40, width = 4)
+pdf("FRHa_gradient_spearman_sig_loci_x_BIO1_sync.pdf", height = 40, width = 4)
 plot3
 dev.off() 
 
-pdf("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/5_Gradient_analysis_Upustulata/FRHa_gradient_spearman_sig_loci_x_BIO1_sync_Fig_focus.pdf", height = 2, width = 6)
+pdf("FRHa_gradient_spearman_sig_loci_x_BIO1_sync_Fig_focus.pdf", height = 2, width = 6)
 plot3a
 dev.off() 
 
-pdf("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/5_Gradient_analysis_Upustulata/FRHb_gradient_spearman_sig_loci_x_BIO1_sync.pdf", height = 40, width = 4)
+pdf("FRHb_gradient_spearman_sig_loci_x_BIO1_sync.pdf", height = 40, width = 4)
 plot4
 dev.off() 
 
-pdf("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/5_Gradient_analysis_Upustulata/CCG1_gradient_spearman_sig_loci_x_BIO1_sync.pdf", height = 20, width = 4)
+pdf("CCG1_gradient_spearman_sig_loci_x_BIO1_sync.pdf", height = 20, width = 4)
 plot5
 dev.off() 
 
-pdf("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/5_Gradient_analysis_Upustulata/CCG6_gradient_spearman_sig_loci_x_BIO1_sync.pdf", height = 20, width = 4)
+pdf("CCG6_gradient_spearman_sig_loci_x_BIO1_sync.pdf", height = 20, width = 4)
 plot6
 dev.off() 
 
-pdf("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/5_Gradient_analysis_Upustulata/CCG7_gradient_spearman_sig_loci_x_BIO1_sync.pdf", height = 40, width = 4)
+pdf("CCG7_gradient_spearman_sig_loci_x_BIO1_sync.pdf", height = 40, width = 4)
 plot7
 dev.off() 
 
-pdf("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/5_Gradient_analysis_Upustulata/CCG8_gradient_spearman_sig_loci_x_BIO1_sync.pdf", height = 30, width = 4)
+pdf("CCG8_gradient_spearman_sig_loci_x_BIO1_sync.pdf", height = 30, width = 4)
 plot8
 dev.off() 
 
-pdf("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/5_Gradient_analysis_Upustulata/CCG9_gradient_spearman_sig_loci_x_BIO1_sync.pdf", height = 60, width = 4)
+pdf("CCG9_gradient_spearman_sig_loci_x_BIO1_sync.pdf", height = 60, width = 4)
 plot9
 dev.off() 
 
-pdf("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/5_Gradient_analysis_Upustulata/FRQ_gradient_spearman_sig_loci_x_BIO1_sync.pdf", height = 60, width = 4)
+pdf("FRQ_gradient_spearman_sig_loci_x_BIO1_sync.pdf", height = 60, width = 4)
 plot10
 dev.off() 
 
@@ -997,27 +982,15 @@ rm(list=ls())
 gc()
 
 # load the file with significant loci and the bioclim file
-data <- read.table("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/5_Gradient_analysis_Upustulata/circadian_alleles_sync_labeled_melted4_sig.txt", sep = "\t", header = T, check.names = F)
-#data <- read.table("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/5_Gradient_analysis_Upustulata/circadian_alleles_sync_labeled_melted4_sig2.txt", sep = "\t", header = T, check.names = F)
-bioclim <- read.csv("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/5_Gradient_analysis_Upustulata/bioclim_15pops_raw.csv", header = T, check.names = F)
+data <- read.table("circadian_alleles_sync_labeled_melted_sig.txt", sep = "\t", header = T, check.names = F)
+bioclim <- read.csv("bioclim_15pops_raw.csv", header = T, check.names = F)
 
 joined_data <- merge(data,bioclim, by = c("site","pop"))
-
 
 joined_data$genom_pos <- paste(joined_data$chr,joined_data$pos)
 joined_data$genom_pos <- as.factor(joined_data$genom_pos)
 
 # looking at loci significant in any of the sites (rather than all three)
-
-# need to manually set the axis range for each of the y-axes for setting an additional x axis:
-# ylim.prim <- c(0, 1)   # in this example, allele ratio
-# ylim.sec <- c(350, 950)    # in this example, elevation
-# b <- diff(ylim.prim)/diff(ylim.sec)
-# a <- ylim.prim[1] - b*ylim.sec[1] 
-### Then, add this to the plot:
-# geom_line(aes(y = a + BIO12*b), color = "cornflowerblue", linetype = "dashed") + # to add the data 
-# scale_y_continuous("% base frequency", breaks = c(0,0.5,1), sec.axis = sec_axis(~ (. - a)/b, name = "Mean annual precip. (mm)")) + # modify the scale like this
-
 
 WC1_joined_data <- joined_data[joined_data$region == "WC-1",]
 WC2_joined_data <- joined_data[joined_data$region == "WC-2",]
@@ -1187,43 +1160,43 @@ CCG9_joined_data <- joined_data[joined_data$region == "CCG9",]
         axis.line.y = element_line(color="black")))
 
 
-pdf("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/5_Gradient_analysis_Upustulata/WC2_gradient_FET_sig_loci_x_BIO1_sync.pdf", height = 3, width = 4)
+pdf("WC2_gradient_FET_sig_loci_x_BIO1_sync.pdf", height = 3, width = 4)
 plot1
 dev.off() 
 
-pdf("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/5_Gradient_analysis_Upustulata/WC_like2_gradient_FET_sig_loci_x_BIO1_sync.pdf", height = 6, width = 4)
+pdf("WC_like2_gradient_FET_sig_loci_x_BIO1_sync.pdf", height = 6, width = 4)
 plot2
 dev.off() 
 
-pdf("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/5_Gradient_analysis_Upustulata/FRHa_gradient_FET_sig_loci_x_BIO1_sync.pdf", height = 10, width = 4)
+pdf("FRHa_gradient_FET_sig_loci_x_BIO1_sync.pdf", height = 10, width = 4)
 plot3
 dev.off() 
 
-pdf("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/5_Gradient_analysis_Upustulata/FRHb_gradient_FET_sig_loci_x_BIO1_sync.pdf", height = 40, width = 4)
+pdf("FRHb_gradient_FET_sig_loci_x_BIO1_sync.pdf", height = 40, width = 4)
 plot4
 dev.off() 
 
-pdf("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/5_Gradient_analysis_Upustulata/CCG1_gradient_FET_sig_loci_x_BIO1_sync.pdf", height = 20, width = 4)
+pdf("CCG1_gradient_FET_sig_loci_x_BIO1_sync.pdf", height = 20, width = 4)
 plot5
 dev.off() 
 
-pdf("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/5_Gradient_analysis_Upustulata/CCG6_gradient_FET_sig_loci_x_BIO1_sync.pdf", height = 20, width = 4)
+pdf("CCG6_gradient_FET_sig_loci_x_BIO1_sync.pdf", height = 20, width = 4)
 plot6
 dev.off() 
 
-pdf("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/5_Gradient_analysis_Upustulata/CCG7_gradient_FET_sig_loci_x_BIO1_sync.pdf", height = 40, width = 4)
+pdf("CCG7_gradient_FET_sig_loci_x_BIO1_sync.pdf", height = 40, width = 4)
 plot7
 dev.off() 
 
-pdf("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/5_Gradient_analysis_Upustulata/CCG8_gradient_FET_sig_loci_x_BIO1_sync.pdf", height = 30, width = 4)
+pdf("CCG8_gradient_FET_sig_loci_x_BIO1_sync.pdf", height = 30, width = 4)
 plot8
 dev.off() 
 
-pdf("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/5_Gradient_analysis_Upustulata/CCG9_gradient_FET_sig_loci_x_BIO1_sync.pdf", height = 60, width = 4)
+pdf("CCG9_gradient_FET_sig_loci_x_BIO1_sync.pdf", height = 60, width = 4)
 plot9
 dev.off() 
 
-pdf("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/5_Gradient_analysis_Upustulata/FRQ_gradient_FET_sig_loci_x_BIO1_sync.pdf", height = 60, width = 4)
+pdf("FRQ_gradient_FET_sig_loci_x_BIO1_sync.pdf", height = 60, width = 4)
 plot10
 dev.off() 
 
@@ -1249,7 +1222,7 @@ library(tidyr)
 library(reshape2)
 
 # load FET (Fisher's exact test) significances for all circadian SNPs
-Fst_scores_snps <- read.table("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/6_Umbilicaria_phaea_analyses/Uph_circadian_alleles4.fet", sep = "\t", header = F, check.names = F)
+Fst_scores_snps <- read.table("Uph_circadian_alleles.fet", sep = "\t", header = F, check.names = F)
 
 # clean up file for R usage
 names(Fst_scores_snps) <- Fst_scores_snps[1,]
@@ -1280,7 +1253,7 @@ names(Fst_scores_snps1_cleaned) <- col_names
 melted <- melt(Fst_scores_snps1_cleaned, id = c("chr","pos","cov"), variable.name = "Pairwise2", value.name = "FET")
 
 # merge with Pairwise labels from  Fst per-gene data set (we are only using the labels, so it doesn't matter that only FRQ, WC1 and WC2 are in this data set)
-Fst_scores_genes_circadian <- read.csv("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/6_Umbilicaria_phaea_analyses/population_contrast_labels.csv", header = T)
+Fst_scores_genes_circadian <- read.csv("population_contrast_labels.csv", header = T)
 Pairwise_labels <- Fst_scores_genes_circadian[,c(1:5)]
 merged <- merge(melted, Pairwise_labels, by ="Pairwise2")
 merged$position <- as.factor(merged$pos) 
@@ -1293,11 +1266,9 @@ merged_unique_sig <- merged %>% group_by(pos,chr) %>% slice(which.max(FET)) %>% 
 
 merged_unique_sig1 <- merged_unique_sig[merged_unique_sig$Elevation_Binary == "Across",]
 
-#merged_unique_sig2 <- merged_unique_sig[merged_unique_sig$Pairwise2 == "1-4" | merged_unique_sig$Pairwise2 == "1-11" | merged_unique_sig$Pairwise2 == "5-4" | merged_unique_sig$Pairwise2 == "5-11",]
-
 # write this file 
-write.table(merged, file = "~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/6_Umbilicaria_phaea_analyses/SNPs_circadian_unique_all4.fet", sep = "\t", na = "", quote = F, row.names = F, col.names = T)
-write.table(merged_unique_sig1, file = "~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/6_Umbilicaria_phaea_analyses/SNPs_circadian_significant4.fet", sep = "\t", na = "", quote = F, row.names = F, col.names = T)
+write.table(merged, file = "SNPs_circadian_unique_all.fet", sep = "\t", na = "", quote = F, row.names = F, col.names = T)
+write.table(merged_unique_sig1, file = "SNPs_circadian_significant.fet", sep = "\t", na = "", quote = F, row.names = F, col.names = T)
 
 ```
 
@@ -1353,50 +1324,56 @@ subset_all1$FET <- as.numeric(subset_all1$FET)
         axis.line.x = element_line(color="black"),
         axis.line.y = element_line(color="black")))
 
-ggsave(plot1, filename = "~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/6_Umbilicaria_phaea_analyses/circadian_FET_SNPs.pdf", 
+ggsave(plot1, filename = "circadian_FET_SNPs.pdf", 
        height = 3, width = 15, 
        device = cairo_pdf)
 
 
-bioclim <- read.csv("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/6_Umbilicaria_phaea_analyses/bioclim_11pops_raw.csv", header = T, check.names = F)
+bioclim <- read.csv("bioclim_11pops_raw.csv", header = T, check.names = F)
+
+library("RColorBrewer")
+myPalette1 <- colorRampPalette(rev(brewer.pal(11, "Spectral")))
+colors_temp <- scale_colour_gradientn(colors = myPalette1(100), limits=c(8, 20))
 
 (plot1  <- ggplot(bioclim, aes(x = site, y = Elevation, col = BIO1)) +
-    geom_point(size = 3) +
+    geom_point(size=4) +
     stat_summary(geom = "line") +
     scale_x_discrete("Site") +
     scale_y_continuous("Elevation (m)") +
     scale_color_continuous("BIO1") +
-    theme_minimal(base_size=12) +
+    theme_minimal(base_size=16) +
     #facet_grid(.~region, scales = "free") +
     theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),
         axis.text.x = element_text(angle = 0, hjust = T),
         axis.line.x = element_line(color="black"),
-        axis.line.y = element_line(color="black")))
+        axis.line.y = element_line(color="black")) + 
+    colors_temp)
 
-library("RColorBrewer")
-myPalette <- colorRampPalette(brewer.pal(11, "Spectral"))
-sc <- scale_colour_gradientn(colours = myPalette(100), limits=c(1, 1600))
+myPalette2 <- colorRampPalette(brewer.pal(11, "Spectral"))
+colors_precip <- scale_colour_gradientn(colours = myPalette2(100), limits=c(1, 1600))
 
 (plot2  <- ggplot(bioclim, aes(x = site, y = Elevation, col = BIO12)) +
     geom_point(size = 3) +
     stat_summary(geom = "line") +
     scale_x_discrete("Site") +
     scale_y_continuous("Elevation (m)") +
-    scale_color_continuous("BIO12 (mm)", ) +
+    scale_color_continuous("BIO12 (mm)") +
     theme_minimal(base_size=12) +
     #facet_grid(.~region, scales = "free") +
     theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),
         axis.text.x = element_text(angle = 0, hjust = T),
         axis.line.x = element_line(color="black"),
-        axis.line.y = element_line(color="black")) +sc)
+        axis.line.y = element_line(color="black")) +
+    colors_precip)
 
-ggsave(plot1, filename = "~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/6_Umbilicaria_phaea_analyses/Elevation_gradients.pdf", 
-       height = 4, width = 4, 
+
+ggsave(plot1, filename = "Elevation_gradients.pdf", 
+       height = 4.25, width = 4.6,
        device = cairo_pdf)
 
-ggsave(plot2, filename = "~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/6_Umbilicaria_phaea_analyses/Elevation_gradients_precip.pdf", 
+ggsave(plot2, filename = "Elevation_gradients_precip.pdf", 
        height = 4, width = 4, 
        device = cairo_pdf)
 
@@ -1419,9 +1396,9 @@ library(tidyr)
 library(reshape2)
 
 # load circadian sync file and unique, significant circadian SNPs
-sync <- read.table("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/6_Umbilicaria_phaea_analyses/Uph_circadian_alleles4.sync", sep = "\t", header = F, check.names = F)
+sync <- read.table("Uph_circadian_alleles.sync", sep = "\t", header = F, check.names = F)
 #unique <- read.table("SNPs_circadian_significant2.fet", sep = "\t", header = T, check.names = F)
-unique <- read.table("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/6_Umbilicaria_phaea_analyses/SNPs_circadian_unique_all4.fet", sep = "\t", header = T, check.names = F)
+unique <- read.table("SNPs_circadian_unique_all.fet", sep = "\t", header = T, check.names = F)
 
 unique_subset <- unique[,c(2:4)]
 
@@ -1493,7 +1470,7 @@ subset_all <- rbind(subset_WC2,subset_FRHa,subset_FRHb,subset_CK1a,subset_CK1b,s
 subset_all$region <- as.factor(subset_all$region)
 
 # write this file 
-write.table(subset_all, file = "~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/6_Umbilicaria_phaea_analyses/circadian_alleles_sync_labeled_melted4.txt", sep = "\t", na = "", quote = F, row.names = F, col.names = T)
+write.table(subset_all, file = "circadian_alleles_sync_labeled_melted.txt", sep = "\t", na = "", quote = F, row.names = F, col.names = T)
 
 ```
 
@@ -1513,10 +1490,8 @@ library(tidyr)
 library(reshape2)
 
 # load circadian sync file and unique, significant circadian SNPs
-sync <- read.table("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/6_Umbilicaria_phaea_analyses/Uph_circadian_alleles4.sync", sep = "\t", header = F, check.names = F)
-#unique <- read.table("SNPs_circadian_significant2.fet", sep = "\t", header = T, check.names = F)
-unique_sig <- read.table("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/6_Umbilicaria_phaea_analyses/SNPs_circadian_significant4.fet", sep = "\t", header = T, check.names = F)
-#unique_sig <- read.table("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/6_Umbilicaria_phaea_analyses/SNPs_circadian_significant4b.fet", sep = "\t", header = T, check.names = F)
+sync <- read.table("Uph_circadian_alleles.sync", sep = "\t", header = F, check.names = F)
+unique_sig <- read.table("SNPs_circadian_significant.fet", sep = "\t", header = T, check.names = F)
 
 unique_subset <- unique_sig[,c(2:4)]
 
@@ -1588,13 +1563,13 @@ subset_all <- rbind(subset_WC2,subset_FRHa,subset_FRHb,subset_CK1a,subset_CK1b,s
 subset_all$region <- as.factor(subset_all$region)
 
 # write this file 
-write.table(subset_all, file = "~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/6_Umbilicaria_phaea_analyses/circadian_alleles_sync_labeled_melted4_sig.txt", sep = "\t", na = "", quote = F, row.names = F, col.names = T)
+write.table(subset_all, file = "circadian_alleles_sync_labeled_melted_sig.txt", sep = "\t", na = "", quote = F, row.names = F, col.names = T)
 
 ```
 
 Next, we can analyze these data: identify which loci have trends along the gradient, merge the data with the environmental/climatic data, and finally graph it.
 
-```{r Part 3: allele ratio gradient analysis -- extracting signifant Spearman corr. loci}
+```{r Part 3: allele ratio gradient analysis -- extracting significant Spearman corr. loci}
 # install.packages("ggplot2")
 # install.packages("emmeans")
 # install.packages("dplyr")
@@ -1618,7 +1593,7 @@ rm(list=ls())
 gc()
 
 # load the labeled, melted circadian sync file
-data <- read.table("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/6_Umbilicaria_phaea_analyses/circadian_alleles_sync_labeled_melted4.txt", sep = "\t", header = T, check.names = F)
+data <- read.table("circadian_alleles_sync_labeled_melted.txt", sep = "\t", header = T, check.names = F)
 
 # set variables properly
 data$region <- as.factor(data$region)
@@ -1785,7 +1760,7 @@ data$genom_pos <- paste(data$chr,data$pos)
 data_significant_subset <- data[data$genom_pos %in% significant_loci, ]
 
 # write this file 
-write.table(data_significant_subset, file = "~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/6_Umbilicaria_phaea_analyses/circadian_alleles_spearman_sig_0_05_loci4.txt", sep = "\t", na = "", quote = F, row.names = F, col.names = T)
+write.table(data_significant_subset, file = "circadian_alleles_spearman_sig_0_05_loci.txt", sep = "\t", na = "", quote = F, row.names = F, col.names = T)
 
 ```
 
@@ -1815,8 +1790,8 @@ rm(list=ls())
 gc()
 
 # load the file with significant loci and the bioclim file
-data <- read.table("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/6_Umbilicaria_phaea_analyses/circadian_alleles_spearman_sig_0_05_loci4.txt", sep = "\t", header = T, check.names = F)
-bioclim <- read.csv("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/6_Umbilicaria_phaea_analyses/bioclim_11pops_raw.csv", header = T, check.names = F)
+data <- read.table("circadian_alleles_spearman_sig_0_05_loci.txt", sep = "\t", header = T, check.names = F)
+bioclim <- read.csv("bioclim_11pops_raw.csv", header = T, check.names = F)
 
 joined_data <- merge(data,bioclim, by = c("site","pop"))
 
@@ -1824,15 +1799,6 @@ joined_data$genom_pos <- paste(joined_data$chr,joined_data$pos)
 joined_data$genom_pos <- as.factor(joined_data$genom_pos)
 
 # looking at loci significant in any of the sites (rather than all three)
-
-# need to manually set the axis range for each of the y-axes for setting an additional x axis:
-# ylim.prim <- c(0, 1)   # in this example, allele ratio
-# ylim.sec <- c(350, 950)    # in this example, elevation
-# b <- diff(ylim.prim)/diff(ylim.sec)
-# a <- ylim.prim[1] - b*ylim.sec[1] 
-### Then, add this to the plot:
-# geom_line(aes(y = a + BIO12*b), color = "cornflowerblue", linetype = "dashed") + # to add the data 
-# scale_y_continuous("% base frequency", breaks = c(0,0.5,1), sec.axis = sec_axis(~ (. - a)/b, name = "Mean annual precip. (mm)")) + # modify the scale like this
 
 WC1_joined_data <- joined_data[joined_data$region == "WC-1",]
 WC2_joined_data <- joined_data[joined_data$region == "WC-2",]
@@ -1898,7 +1864,6 @@ FRHb_joined_data_negative <- FRHb_joined_data[FRHb_joined_data$genom_pos == "sca
 
 FRHb_joined_data_focus <- rbind(FRHb_joined_data_linear,FRHb_joined_data_bell,FRHb_joined_data_negative)
 
-
 (plot4a  <- ggplot(FRHb_joined_data_focus, aes(x = BIO1, y = value_ratio, color = variable, linetype = site)) +
     geom_point(size = 1) +
     stat_summary(fun.data = mean_se, geom = "line") +
@@ -1913,10 +1878,6 @@ FRHb_joined_data_focus <- rbind(FRHb_joined_data_linear,FRHb_joined_data_bell,FR
         axis.text=element_text(color = "black"),
         axis.line.x = element_line(color="black"),
         axis.line.y = element_line(color="black")))
-
-
-
-
 
 (plot5  <- ggplot(CK1a_joined_data, aes(x = BIO1, y = value_ratio, color = variable, linetype = site)) +
     geom_point(size = 1) +
@@ -2023,49 +1984,49 @@ FRHb_joined_data_focus <- rbind(FRHb_joined_data_linear,FRHb_joined_data_bell,FR
         axis.line.x = element_line(color="black"),
         axis.line.y = element_line(color="black")))
 
-pdf("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/6_Umbilicaria_phaea_analyses/WC2_gradient_spearman_sig_loci_x_BIO1_sync.pdf", height = 120, width = 4)
+pdf("WC2_gradient_spearman_sig_loci_x_BIO1_sync.pdf", height = 120, width = 4)
 plot2
 dev.off() 
 
-pdf("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/6_Umbilicaria_phaea_analyses/FRHa_gradient_spearman_sig_loci_x_BIO1_sync.pdf", height = 180, width = 4)
+pdf("FRHa_gradient_spearman_sig_loci_x_BIO1_sync.pdf", height = 180, width = 4)
 plot3
 dev.off() 
 
-pdf("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/6_Umbilicaria_phaea_analyses/FRHb_gradient_spearman_sig_loci_x_BIO1_sync.pdf", height = 180, width = 4)
+pdf("FRHb_gradient_spearman_sig_loci_x_BIO1_sync.pdf", height = 180, width = 4)
 plot4
 dev.off() 
 
 
-pdf("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/6_Umbilicaria_phaea_analyses/FRHb_gradient_spearman_sig_loci_x_BIO1_sync_Fig_focus.pdf", height = 2, width = 6)
+pdf("FRHb_gradient_spearman_sig_loci_x_BIO1_sync_Fig_focus.pdf", height = 2, width = 6)
 plot4a
 dev.off() 
 
 
-pdf("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/6_Umbilicaria_phaea_analyses/CK1a_gradient_spearman_sig_loci_x_BIO1_sync.pdf", height = 100, width = 4)
+pdf("CK1a_gradient_spearman_sig_loci_x_BIO1_sync.pdf", height = 100, width = 4)
 plot5
 dev.off() 
 
-pdf("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/6_Umbilicaria_phaea_analyses/CK1b_gradient_spearman_sig_loci_x_BIO1_sync.pdf", height = 150, width = 4)
+pdf("CK1b_gradient_spearman_sig_loci_x_BIO1_sync.pdf", height = 150, width = 4)
 plot6
 dev.off() 
 
-pdf("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/6_Umbilicaria_phaea_analyses/CK1c_gradient_spearman_sig_loci_x_BIO1_sync.pdf", height = 50, width = 4)
+pdf("CK1c_gradient_spearman_sig_loci_x_BIO1_sync.pdf", height = 50, width = 4)
 plot7
 dev.off() 
 
-pdf("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/6_Umbilicaria_phaea_analyses/CCG1_gradient_spearman_sig_loci_x_BIO1_sync.pdf", height = 40, width = 4)
+pdf("CCG1_gradient_spearman_sig_loci_x_BIO1_sync.pdf", height = 40, width = 4)
 plot8
 dev.off() 
 
-pdf("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/6_Umbilicaria_phaea_analyses/CCG7_gradient_spearman_sig_loci_x_BIO1_sync.pdf", height = 80, width = 4)
+pdf("CCG7_gradient_spearman_sig_loci_x_BIO1_sync.pdf", height = 80, width = 4)
 plot9
 dev.off() 
 
-pdf("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/6_Umbilicaria_phaea_analyses/CCG8_gradient_spearman_sig_loci_x_BIO1_sync.pdf", height = 100, width = 4)
+pdf("CCG8_gradient_spearman_sig_loci_x_BIO1_sync.pdf", height = 100, width = 4)
 plot10
 dev.off() 
 
-pdf("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/6_Umbilicaria_phaea_analyses/CCG9_gradient_spearman_sig_loci_x_BIO1_sync.pdf", height = 150, width = 4)
+pdf("CCG9_gradient_spearman_sig_loci_x_BIO1_sync.pdf", height = 150, width = 4)
 plot11
 dev.off() 
 
@@ -2098,9 +2059,8 @@ rm(list=ls())
 gc()
 
 # load the file with significant loci and the bioclim file
-data <- read.table("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/6_Umbilicaria_phaea_analyses/circadian_alleles_sync_labeled_melted4_sig.txt", sep = "\t", header = T, check.names = F)
-#data <- read.table("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/6_Umbilicaria_phaea_analyses/circadian_alleles_sync_labeled_melted4_sig2.txt", sep = "\t", header = T, check.names = F)
-bioclim <- read.csv("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/6_Umbilicaria_phaea_analyses/bioclim_11pops_raw.csv", header = T, check.names = F)
+data <- read.table("circadian_alleles_sync_labeled_melted_sig.txt", sep = "\t", header = T, check.names = F)
+bioclim <- read.csv("bioclim_11pops_raw.csv", header = T, check.names = F)
 
 joined_data <- merge(data,bioclim, by = c("site","pop"))
 
@@ -2108,15 +2068,6 @@ joined_data$genom_pos <- paste(joined_data$chr,joined_data$pos)
 joined_data$genom_pos <- as.factor(joined_data$genom_pos)
 
 # looking at loci significant in any of the sites (rather than all three)
-
-# need to manually set the axis range for each of the y-axes for setting an additional x axis:
-# ylim.prim <- c(0, 1)   # in this example, allele ratio
-# ylim.sec <- c(350, 950)    # in this example, elevation
-# b <- diff(ylim.prim)/diff(ylim.sec)
-# a <- ylim.prim[1] - b*ylim.sec[1] 
-### Then, add this to the plot:
-# geom_line(aes(y = a + BIO12*b), color = "cornflowerblue", linetype = "dashed") + # to add the data 
-# scale_y_continuous("% base frequency", breaks = c(0,0.5,1), sec.axis = sec_axis(~ (. - a)/b, name = "Mean annual precip. (mm)")) + # modify the scale like this
 
 WC1_joined_data <- joined_data[joined_data$region == "WC-1",]
 WC2_joined_data <- joined_data[joined_data$region == "WC-2",]
@@ -2281,51 +2232,44 @@ CCG9_joined_data <- joined_data[joined_data$region == "CCG9",]
         axis.line.x = element_line(color="black"),
         axis.line.y = element_line(color="black")))
 
-pdf("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/6_Umbilicaria_phaea_analyses/WC2_gradient_FET_sig_loci_x_BIO1_sync.pdf", height = 100, width = 4)
+pdf("WC2_gradient_FET_sig_loci_x_BIO1_sync.pdf", height = 100, width = 4)
 plot2
 dev.off() 
 
-pdf("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/6_Umbilicaria_phaea_analyses/FRHa_gradient_FET_sig_loci_x_BIO1_sync.pdf", height = 150, width = 4)
+pdf("FRHa_gradient_FET_sig_loci_x_BIO1_sync.pdf", height = 150, width = 4)
 plot3
 dev.off() 
 
-pdf("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/6_Umbilicaria_phaea_analyses/FRHb_gradient_FET_sig_loci_x_BIO1_sync.pdf", height = 150, width = 4)
+pdf("FRHb_gradient_FET_sig_loci_x_BIO1_sync.pdf", height = 150, width = 4)
 plot4
 dev.off() 
 
-pdf("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/6_Umbilicaria_phaea_analyses/CK1a_gradient_FET_sig_loci_x_BIO1_sync.pdf", height = 100, width = 4)
+pdf("CK1a_gradient_FET_sig_loci_x_BIO1_sync.pdf", height = 100, width = 4)
 plot5
 dev.off() 
 
-pdf("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/6_Umbilicaria_phaea_analyses/CK1b_gradient_FET_sig_loci_x_BIO1_sync.pdf", height = 150, width = 4)
+pdf("CK1b_gradient_FET_sig_loci_x_BIO1_sync.pdf", height = 150, width = 4)
 plot6
 dev.off() 
 
-pdf("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/6_Umbilicaria_phaea_analyses/CK1c_gradient_FET_sig_loci_x_BIO1_sync.pdf", height = 50, width = 4)
+pdf("CK1c_gradient_FET_sig_loci_x_BIO1_sync.pdf", height = 50, width = 4)
 plot7
 dev.off() 
 
-pdf("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/6_Umbilicaria_phaea_analyses/CCG1_gradient_FET_sig_loci_x_BIO1_sync.pdf", height = 40, width = 4)
+pdf("CCG1_gradient_FET_sig_loci_x_BIO1_sync.pdf", height = 40, width = 4)
 plot8
 dev.off() 
 
-pdf("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/6_Umbilicaria_phaea_analyses/CCG7_gradient_FET_sig_loci_x_BIO1_sync.pdf", height = 100, width = 4)
+pdf("CCG7_gradient_FET_sig_loci_x_BIO1_sync.pdf", height = 100, width = 4)
 plot9
 dev.off() 
 
-pdf("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/6_Umbilicaria_phaea_analyses/CCG8_gradient_FET_sig_loci_x_BIO1_sync.pdf", height = 100, width = 4)
+pdf("CCG8_gradient_FET_sig_loci_x_BIO1_sync.pdf", height = 100, width = 4)
 plot10
 dev.off() 
 
-pdf("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/6_Umbilicaria_phaea_analyses/CCG9_gradient_FET_sig_loci_x_BIO1_sync.pdf", height = 150, width = 4)
+pdf("CCG9_gradient_FET_sig_loci_x_BIO1_sync.pdf", height = 150, width = 4)
 plot11
 dev.off() 
 
 ```
-
-
-#### Trying a different approach: searching in qbGLM for most differentiated, and checking their GO terms
-
-
-
-
