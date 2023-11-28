@@ -20,55 +20,49 @@ Save this as a tab-delimited file, and rename the extension as *.bed and then pr
 
 ```{bash bed to bam}
 ### for U. pustulata circadian loci:
-for i in 1 2 3 4 5 6; do bedtools intersect -a /phylodata/fdalgrande/TRIMMED_PoolSeq_3gradients/IT_Pool${i}_aligned_reads.sort.rmd.q20.bam -b Upust_circadian_GO_labeled.bed > Upust_IT${i}_circadian.bam; done
+for i in 1 2 3 4 5 6; do bedtools intersect -a IT_Pool${i}_aligned_reads.sort.rmd.q20.bam -b Upust_circadian_GO_labeled.bed > Upust_IT${i}_circadian.bam; done
 
-for i in 1 2 3 4 5 6; do bedtools intersect -a /phylodata/fdalgrande/TRIMMED_PoolSeq_3gradients/ESii_Pool${i}_aligned_reads.sort.rmd.q20.bam -b Upust_circadian_GO_labeled.bed > Upust_ESii${i}_circadian.bam; done
+for i in 1 2 3 4 5 6; do bedtools intersect -a ESii_Pool${i}_aligned_reads.sort.rmd.q20.bam -b Upust_circadian_GO_labeled.bed > Upust_ESii${i}_circadian.bam; done
 
-for i in 1 2 3; do bedtools intersect -a /phylodata/fdalgrande/TRIMMED_PoolSeq_3gradients/ESi_Pool${i}_aligned_reads.sort.rmd.q20.bam -b Upust_circadian_GO_labeled.bed > Upust_ESi${i}_circadian.bam; done
+for i in 1 2 3; do bedtools intersect -a ESi_Pool${i}_aligned_reads.sort.rmd.q20.bam -b Upust_circadian_GO_labeled.bed > Upust_ESi${i}_circadian.bam; done
 
 ### for U. phaea circadian loci:
-for i in 16 17 18 19; do bedtools intersect -a ../SierraNevada/Uph${i}_aligned_reads.sort.rmd.q20.bam -b Uph_circadian_GO_labeled.bed > Uph${i}_circadian.bam; done
+for i in 16 17 18 19; do bedtools intersect -a Uph${i}_aligned_reads.sort.rmd.q20.bam -b Uph_circadian_GO_labeled.bed > Uph${i}_circadian.bam; done
 
-for i in 22 23 24 25 26 27 28; do bedtools intersect -a ../MtJacinto/Uph${i}_aligned_reads.sort.rmd.q20.bam -b Uph_circadian_GO_labeled.bed > Uph${i}_circadian.bam; done
-
-### For U. hispanica circadian loci:
-for i in 1 2 3 4 5 6; do bedtools intersect -a H${i}_aligned_reads.sort.rmd.q20.bam -b Uhis_circadian_GO_labeled.bed > Uhis${i}_circadian.bam; done
+for i in 22 23 24 25 26 27 28; do bedtools intersect -a Uph${i}_aligned_reads.sort.rmd.q20.bam -b Uph_circadian_GO_labeled.bed > Uph${i}_circadian.bam; done
 
 #######
 
 ### for U. pustulata temperature loci:
-for i in 1 2 3 4 5 6; do bedtools intersect -a /phylodata/fdalgrande/TRIMMED_PoolSeq_3gradients/IT_Pool${i}_aligned_reads.sort.rmd.q20.bam -b Upust_temperature_GO_labeled.bed > Upust_IT${i}_temperature.bam; done
+for i in 1 2 3 4 5 6; do bedtools intersect -a IT_Pool${i}_aligned_reads.sort.rmd.q20.bam -b Upust_temperature_GO_labeled.bed > Upust_IT${i}_temperature.bam; done
 
-for i in 1 2 3 4 5 6; do bedtools intersect -a /phylodata/fdalgrande/TRIMMED_PoolSeq_3gradients/ESii_Pool${i}_aligned_reads.sort.rmd.q20.bam -b Upust_temperature_GO_labeled.bed > Upust_ESii${i}_temperature.bam; done
+for i in 1 2 3 4 5 6; do bedtools intersect -a ESii_Pool${i}_aligned_reads.sort.rmd.q20.bam -b Upust_temperature_GO_labeled.bed > Upust_ESii${i}_temperature.bam; done
 
-for i in 1 2 3; do bedtools intersect -a /phylodata/fdalgrande/TRIMMED_PoolSeq_3gradients/ESi_Pool${i}_aligned_reads.sort.rmd.q20.bam -b Upust_temperature_GO_labeled.bed > Upust_ESi${i}_temperature.bam; done
+for i in 1 2 3; do bedtools intersect -a ESi_Pool${i}_aligned_reads.sort.rmd.q20.bam -b Upust_temperature_GO_labeled.bed > Upust_ESi${i}_temperature.bam; done
 
 ### for U. phaea temperature loci:
-for i in 16 17 18 19; do bedtools intersect -a ../SierraNevada/Uph${i}_aligned_reads.sort.rmd.q20.bam -b Uph_temperature_GO_labeled.bed > Uph${i}_temperature.bam; done
+for i in 16 17 18 19; do bedtools intersect -a Uph${i}_aligned_reads.sort.rmd.q20.bam -b Uph_temperature_GO_labeled.bed > Uph${i}_temperature.bam; done
 
-for i in 22 23 24 25 26 27 28; do bedtools intersect -a ../MtJacinto/Uph${i}_aligned_reads.sort.rmd.q20.bam -b Uph_temperature_GO_labeled.bed > Uph${i}_temperature.bam; done
+for i in 22 23 24 25 26 27 28; do bedtools intersect -a Uph${i}_aligned_reads.sort.rmd.q20.bam -b Uph_temperature_GO_labeled.bed > Uph${i}_temperature.bam; done
 ```
 
 you can compare the BAM files' number of mapped reads to check if it worked:
 
 ```{bash bam check}
-samtools view -c -F 260 ../SierraNevada/Uph16_aligned_reads.sort.rmd.q20.bam 
+samtools view -c -F 260 Uph16_aligned_reads.sort.rmd.q20.bam 
 # 16218568
 samtools view -c -F 260 Uph16_circadian.bam 
 # 65380
 ```
 
-## b. next, mpileup files must be prepared for each sample individually
+## b. mpileup files are prepared for each sample individually
 
 ```{bash bam to mpileup}
 ### for U. pustulata circadian loci:
 for pop in IT1 IT2 IT3 IT4 IT5 IT6 ESii1 ESii2 ESii3 ESii4 ESii5 ESii6 ESi1 ESi2 ESi3; do samtools mpileup -B -Q 0 -f Lpus_4dec_AN3.masked.fasta Upust_${pop}_circadian.bam > Upust_${pop}_circadian.mpileup; done
 
 ### for U. phaea circadian loci:
-for i in 16 17 18 19 22 23 24 25 26 27 28; do samtools mpileup -B -Q 0 -f ../Umbilicaria_phaea_Uphaea_ref_cold.scaffolds.fa Uph${i}_circadian.bam > Uph${i}_circadian.mpileup; done
-
-### For U. hispanica circadian loci:
-for i in 1 2 3 4 5 6; do samtools mpileup -B -Q 0 -f Lasallia_hispanica_U_hispanica_TBG_2337.scaffolds.fa Uhis${i}_circadian.bam > Uhis${i}_circadian.mpileup; done
+for i in 16 17 18 19 22 23 24 25 26 27 28; do samtools mpileup -B -Q 0 -f Umbilicaria_phaea_Uphaea_ref_cold.scaffolds.fa Uph${i}_circadian.bam > Uph${i}_circadian.mpileup; done
 
 ##########
 
@@ -76,26 +70,38 @@ for i in 1 2 3 4 5 6; do samtools mpileup -B -Q 0 -f Lasallia_hispanica_U_hispan
 for pop in IT1 IT2 IT3 IT4 IT5 IT6 ESii1 ESii2 ESii3 ESii4 ESii5 ESii6 ESi1 ESi2 ESi3; do samtools mpileup -B -Q 0 -f Lpus_4dec_AN3.masked.fasta Upust_${pop}_temperature.bam > Upust_${pop}_temperature.mpileup; done
 
 ### for U. phaea temperature loci:
-for i in 16 17 18 19 22 23 24 25 26 27 28; do samtools mpileup -B -Q 0 -f ../Umbilicaria_phaea_Uphaea_ref_cold.scaffolds.fa Uph${i}_temperature.bam > Uph${i}_temperature.mpileup; done
+for i in 16 17 18 19 22 23 24 25 26 27 28; do samtools mpileup -B -Q 0 -f Umbilicaria_phaea_Uphaea_ref_cold.scaffolds.fa Uph${i}_temperature.bam > Uph${i}_temperature.mpileup; done
 ```
 
 
-## c. get nucleotide diversity directly from mpileup files
+## c. get nucleotide diversity from the circadian/temperature gene mpileup files
 
-```{bash mpileup to pi}
-### for U. pustulata circadian loci:
-for pop in IT1 IT2 IT3 IT4 IT5 IT6 ESii1 ESii2 ESii3 ESii4 ESii5 ESii6 ESi1 ESi2 ESi3; do perl /home/hvalim/tools/popoolation_1.2.2/Variance-sliding.pl --measure pi --input Upust_${pop}_circadian.mpileup --output Upust_${pop}_circadian.pi --min-count 2 --min-coverage 10 --max-coverage 100 --window-size 1 --step-size 1 --pool-size 100 --fastq-type sanger; done
 
-### for U. phaea circadian loci:
-for i in 16 17 18 19 22 23 24 25 26 27 28; do perl /home/hvalim/tools/popoolation_1.2.2/Variance-sliding.pl  --measure pi --input Uph${i}_circadian.mpileup --output Uph${i}_circadian.pi --min-count 2 --min-coverage 10 --max-coverage 100 --window-size 1 --step-size 1 --pool-size 100 --fastq-type sanger; done
+```{bash U. pustulata circadian loci}
+## Pi
+for pop in IT1 IT2 IT3 IT4 IT5 IT6 ESii1 ESii2 ESii3 ESii4 ESii5 ESii6 ESi1 ESi2 ESi3; do perl popoolation_1.2.2/Variance-sliding.pl --measure pi --input Upust_${pop}_circadian.mpileup --output Upust_${pop}_circadian.pi --min-qual 20 --min-covered-fraction 0.5  --min-count 2 --min-coverage 4 --max-coverage 400 --window-size 1 --step-size 1 --pool-size 100 --fastq-type sanger; done
 
-############
+```
 
-### for U. pustulata temperature loci:
-for pop in IT1 IT2 IT3 IT4 IT5 IT6 ESii1 ESii2 ESii3 ESii4 ESii5 ESii6 ESi1 ESi2 ESi3; do perl /home/hvalim/tools/popoolation_1.2.2/Variance-sliding.pl --measure pi --input Upust_${pop}_temperature.mpileup --output Upust_${pop}_temperature.pi --min-count 2 --min-coverage 10 --max-coverage 100 --window-size 1 --step-size 1 --pool-size 100 --fastq-type sanger; done
 
-### for U. phaea temperature loci:
-for i in 16 17 18 19 22 23 24 25 26 27 28; do perl /home/hvalim/tools/popoolation_1.2.2/Variance-sliding.pl  --measure pi --input Uph${i}_temperature.mpileup --output Uph${i}_temperature.pi --min-count 2 --min-coverage 10 --max-coverage 100 --window-size 1 --step-size 1 --pool-size 100 --fastq-type sanger; done
+```{bash U. phaea circadian loci}
+## Pi:
+for i in 16 17 18 19 22 23 24 25 26 27 28; do perl popoolation_1.2.2/Variance-sliding.pl  --measure pi --input Uph${i}_circadian.mpileup --output Uph${i}_circadian.pi --min-qual 20 --min-covered-fraction 0.5  --min-count 2 --min-coverage 4 --max-coverage 400 --window-size 1 --step-size 1 --pool-size 100 --fastq-type sanger; done
+
+```
+
+
+```{bash U. pustulata temperature loci}
+# Pi:
+for pop in IT1 IT2 IT3 IT4 IT5 IT6 ESii1 ESii2 ESii3 ESii4 ESii5 ESii6 ESi1 ESi2 ESi3; do perl popoolation_1.2.2/Variance-sliding.pl --measure pi --input Upust_${pop}_temperature.mpileup --output Upust_${pop}_temperature.pi --min-qual 20 --min-covered-fraction 0.5  --min-count 2 --min-coverage 4 --max-coverage 400 --window-size 1 --step-size 1 --pool-size 100 --fastq-type sanger; done
+
+```
+
+
+```{bash U. phaea temperature loci}
+# Pi:
+for i in 16 17 18 19 22 23 24 25 26 27 28; do perl popoolation_1.2.2/Variance-sliding.pl  --measure pi --input Uph${i}_temperature.mpileup --output Uph${i}_temperature.pi --min-qual 20 --min-covered-fraction 0.5  --min-count 2 --min-coverage 4 --max-coverage 400 --window-size 1 --step-size 1 --pool-size 100 --fastq-type sanger; done
+
 ```
 
 # 2. Combining PI files and initial analysis
@@ -110,6 +116,10 @@ library(tidyr)
 library(ape)
 library(vegan)
 library(dplyr)
+library(stringr)
+library(reshape2)
+library(ggplot2)
+library(R.devices)
 
 # import each pi file 
 pi_1 <- read.delim("Upust_IT1_circadian.pi", header = F)
@@ -215,21 +225,21 @@ pi_all12 <- merge(pi_all11, pi_13, by="ID")
 pi_all13 <- merge(pi_all12, pi_14, by="ID")
 pi_all <- merge(pi_all13, pi_15, by="ID")
 
-pi_all$pi_1 <- as.numeric(pi_all$pi_1)
-pi_all$pi_2 <- as.numeric(pi_all$pi_2)
-pi_all$pi_3 <- as.numeric(pi_all$pi_3)
-pi_all$pi_4 <- as.numeric(pi_all$pi_4)
-pi_all$pi_5 <- as.numeric(pi_all$pi_5)
-pi_all$pi_6 <- as.numeric(pi_all$pi_6)
-pi_all$pi_7 <- as.numeric(pi_all$pi_7)
-pi_all$pi_8 <- as.numeric(pi_all$pi_8)
-pi_all$pi_9 <- as.numeric(pi_all$pi_9)
-pi_all$pi_10 <- as.numeric(pi_all$pi_10)
-pi_all$pi_11 <- as.numeric(pi_all$pi_11)
-pi_all$pi_12 <- as.numeric(pi_all$pi_12)
-pi_all$pi_13 <- as.numeric(pi_all$pi_13)
-pi_all$pi_14 <- as.numeric(pi_all$pi_14)
-pi_all$pi_15 <- as.numeric(pi_all$pi_15)
+pi_all$pi_1 <- as.numeric(as.character(pi_all$pi_1))
+pi_all$pi_2 <- as.numeric(as.character(pi_all$pi_2))
+pi_all$pi_3 <- as.numeric(as.character(pi_all$pi_3))
+pi_all$pi_4 <- as.numeric(as.character(pi_all$pi_4))
+pi_all$pi_5 <- as.numeric(as.character(pi_all$pi_5))
+pi_all$pi_6 <- as.numeric(as.character(pi_all$pi_6))
+pi_all$pi_7 <- as.numeric(as.character(pi_all$pi_7))
+pi_all$pi_8 <- as.numeric(as.character(pi_all$pi_8))
+pi_all$pi_9 <- as.numeric(as.character(pi_all$pi_9))
+pi_all$pi_10 <- as.numeric(as.character(pi_all$pi_10))
+pi_all$pi_11 <- as.numeric(as.character(pi_all$pi_11))
+pi_all$pi_12 <- as.numeric(as.character(pi_all$pi_12))
+pi_all$pi_13 <- as.numeric(as.character(pi_all$pi_13))
+pi_all$pi_14 <- as.numeric(as.character(pi_all$pi_14))
+pi_all$pi_15 <- as.numeric(as.character(pi_all$pi_15))
 
 dds.pcoa=pcoa(vegdist(t((pi_all[,2:16])), method="euclidean")/100)
 scores=dds.pcoa$vectors
@@ -238,19 +248,19 @@ percent / sum(percent) #percent for each axes; change in caption below
 
 labels1 <- c("IT-1","IT-2","IT-3","IT-4","IT-5","IT-6","ESi-1","ESi-2","ESi-3","ESii-1","ESii-2","ESii-3","ESii-4","ESii-5","ESii-6")
 
-pdf(file.path("PCA_circadian_nucl_div_Upust_15pops_PC1_PC2_NEW.pdf"))
+pdf(file.path("PCA_circadian_nucl_div_Upust_15pops_PC1_PC2.pdf"))
 plot(scores[,1], scores[,2],
      col=c("red","red","red","red","purple","blue", "red","blue","blue", "red","red","purple","blue","blue","blue"), 
      pch = c(19,19,19,19,19,19,19,19,19,19,19,19,19,19,19),
-     xlab = "PC1 (34.26%)", ylab = "PC2 (28.40%)",main="Nucleotide diversity, circadian loci",sub="Umbilicaria pustulata, Sardinian and Spanish gradients",)
+     xlab = "PC1 (32.01%)", ylab = "PC2 (23.88%)",main="Nucleotide diversity, circadian loci",sub="Umbilicaria pustulata, Sardinian and Spanish gradients",)
 text(scores[,1], scores[,2], labels=labels1, cex= 0.7, pos=4)
 dev.off()
 
-pdf(file.path("PCA_circadian_nucl_div_Upust_15pops_PC2_PC3_NEW.pdf"))
+pdf(file.path("PCA_circadian_nucl_div_Upust_15pops_PC2_PC3.pdf"))
 plot(scores[,2], scores[,3],
      col=c("red","red","red","red","purple","blue", "red","blue","blue", "red","red","purple","blue","blue","blue"), 
      pch = c(19,19,19,19,19,19,19,19,19,19,19,19,19,19,19),
-     xlab = "PC2 (28.40%)", ylab = "PC3 (9.28%)",main="Nucleotide diversity, circadian loci",sub="Umbilicaria pustulata, Sardinian and Spanish gradients",)
+     xlab = "PC2 (23.88%)", ylab = "PC3 (7.99%)",main="Nucleotide diversity, circadian loci",sub="Umbilicaria pustulata, Sardinian and Spanish gradients",)
 text(scores[,2], scores[,3], labels=labels1, cex= 0.7, pos=4)
 dev.off()
 
@@ -265,28 +275,92 @@ clim_df <- data.frame(
   line = c("red","red","red","red","purple","blue", "red","blue","blue", "red","red","purple","blue","blue","blue")
 )
 
-
 line_site <- site_df$line
 line_clim <- clim_df$line
 
-adonis2_site <- adonis2(t(pi_all[,2:16])~line, data = site_df, permutations = 1000000, method = "manhattan") # 0.1299
-adonis2_clim <- adonis2(t(pi_all[,2:16])~line, data = clim_df, permutations = 1000000, method = "manhattan") # 0.006145 **
+adonis2_site <- adonis2(t(pi_all[,2:16])~line, data = site_df, permutations = 1000000, method = "manhattan") 
+adonis2_clim <- adonis2(t(pi_all[,2:16])~line, data = clim_df, permutations = 1000000, method = "manhattan") 
 
-capture.output(adonis2_site, file = "Upust_adonis2_circadian_site_NEW.txt")
-capture.output(adonis2_clim, file = "Upust_adonis2_circadian_clim_NEW.txt")
+capture.output(adonis2_site, file = "Upust_adonis2_circadian_site.txt")
+capture.output(adonis2_clim, file = "Upust_adonis2_circadian_clim.txt")
 
-# climate zone is highly significant, but site is not
+# climate zone is highly significant, but site is less so
 
 write.table(pi_all, file = "Upust_circadian_GO_all.pi", sep = "\t", na = "", quote = F, row.names = F, col.names = T)
+
+# prepare boxplots
+
+# merge only by gradient
+pi_all1 <- merge(pi_1, pi_2, by="ID")
+pi_all2 <- merge(pi_all1, pi_3, by="ID")
+pi_all3 <- merge(pi_all2, pi_4, by="ID")
+pi_all4 <- merge(pi_all3, pi_5, by="ID")
+pi_IT <- merge(pi_all4, pi_6, by="ID")
+
+pi_all1 <- merge(pi_7, pi_8, by="ID")
+pi_ESi <- merge(pi_all1, pi_9, by="ID")
+
+pi_all1 <- merge(pi_10, pi_11, by="ID")
+pi_all2 <- merge(pi_all1, pi_12, by="ID")
+pi_all3 <- merge(pi_all2, pi_13, by="ID")
+pi_all4 <- merge(pi_all3, pi_14, by="ID")
+pi_ESii <- merge(pi_all4, pi_15, by="ID")
+
+# convert to numeric
+pi_IT$pi_1 <- as.numeric(as.character(pi_IT$pi_1))
+pi_IT$pi_2 <- as.numeric(as.character(pi_IT$pi_2))
+pi_IT$pi_3 <- as.numeric(as.character(pi_IT$pi_3))
+pi_IT$pi_4 <- as.numeric(as.character(pi_IT$pi_4))
+pi_IT$pi_5 <- as.numeric(as.character(pi_IT$pi_5))
+pi_IT$pi_6 <- as.numeric(as.character(pi_IT$pi_6))
+pi_ESi$pi_7 <- as.numeric(as.character(pi_ESi$pi_7))
+pi_ESi$pi_8 <- as.numeric(as.character(pi_ESi$pi_8))
+pi_ESi$pi_9 <- as.numeric(as.character(pi_ESi$pi_9))
+pi_ESii$pi_10 <- as.numeric(as.character(pi_ESii$pi_10))
+pi_ESii$pi_11 <- as.numeric(as.character(pi_ESii$pi_11))
+pi_ESii$pi_12 <- as.numeric(as.character(pi_ESii$pi_12))
+pi_ESii$pi_13 <- as.numeric(as.character(pi_ESii$pi_13))
+pi_ESii$pi_14 <- as.numeric(as.character(pi_ESii$pi_14))
+pi_ESii$pi_15 <- as.numeric(as.character(pi_ESii$pi_15))
+
+colnames(pi_IT) <- c("ID","IT-1","IT-2","IT-3","IT-4","IT-5","IT-6")
+colnames(pi_ESi) <- c("ID","ESi-1","ESi-2","ESi-3")
+colnames(pi_ESii) <- c("ID","ESii-1","ESii-2","ESii-3","ESii-4","ESii-5","ESii-6")
+
+melted1 <- melt(pi_IT, id = c("ID"), variable.name = "Pop", value.name = "pi")
+melted2 <- melt(pi_ESi, id = c("ID"), variable.name = "Pop", value.name = "pi")
+melted3 <- melt(pi_ESii, id = c("ID"), variable.name = "Pop", value.name = "pi")
+
+melted4 <- rbind(melted1,melted2)
+melted <- rbind(melted4,melted3)
+
+melted[c('gradient', 'pop')] <- str_split_fixed(melted$Pop, '-', 2)
+
+plot1  <- ggplot(melted, aes(x = pop, y = pi)) +
+    geom_boxplot() +
+    stat_summary(aes(x = as.numeric(as.character(pop))), fun=mean, colour="blue", geom="line") +
+    scale_x_discrete("Population") +
+    scale_y_continuous("Nucleotide diversity, circadian loci") +
+    #coord_cartesian(ylim = c(0, 0.1)) +
+    facet_grid(.~gradient, scales = "free") +
+    theme_classic(base_size = 12)
+
+# save file and plot
+suppressGraphics(ggsave('Upust_circadian_pi_boxplots.png', plot1, width = 8, height = 4))
+
 ```
 
-a
+
 ```{r temperature loci PI PCA, U. pustulata }
 
 library(tidyr)
 library(ape)
 library(vegan)
 library(dplyr)
+library(stringr)
+library(reshape2)
+library(ggplot2)
+library(R.devices)
 
 # import each pi file 
 pi_1 <- read.delim("Upust_IT1_temperature.pi", header = F)
@@ -306,7 +380,6 @@ pi_12 <- read.delim("Upust_ESii3_temperature.pi", header = F)
 pi_13 <- read.delim("Upust_ESii4_temperature.pi", header = F)
 pi_14 <- read.delim("Upust_ESii5_temperature.pi", header = F)
 pi_15 <- read.delim("Upust_ESii6_temperature.pi", header = F)
-
 
 # add column names
 colnames(pi_1) <- c("Chromosome", "window", "num.snps", "frac", "pi_1")
@@ -392,21 +465,22 @@ pi_all12 <- merge(pi_all11, pi_13, by="ID")
 pi_all13 <- merge(pi_all12, pi_14, by="ID")
 pi_all <- merge(pi_all13, pi_15, by="ID")
 
-pi_all$pi_1 <- as.numeric(pi_all$pi_1)
-pi_all$pi_2 <- as.numeric(pi_all$pi_2)
-pi_all$pi_3 <- as.numeric(pi_all$pi_3)
-pi_all$pi_4 <- as.numeric(pi_all$pi_4)
-pi_all$pi_5 <- as.numeric(pi_all$pi_5)
-pi_all$pi_6 <- as.numeric(pi_all$pi_6)
-pi_all$pi_7 <- as.numeric(pi_all$pi_7)
-pi_all$pi_8 <- as.numeric(pi_all$pi_8)
-pi_all$pi_9 <- as.numeric(pi_all$pi_9)
-pi_all$pi_10 <- as.numeric(pi_all$pi_10)
-pi_all$pi_11 <- as.numeric(pi_all$pi_11)
-pi_all$pi_12 <- as.numeric(pi_all$pi_12)
-pi_all$pi_13 <- as.numeric(pi_all$pi_13)
-pi_all$pi_14 <- as.numeric(pi_all$pi_14)
-pi_all$pi_15 <- as.numeric(pi_all$pi_15)
+# convert to numeric
+pi_IT$pi_1 <- as.numeric(as.character(pi_IT$pi_1))
+pi_IT$pi_2 <- as.numeric(as.character(pi_IT$pi_2))
+pi_IT$pi_3 <- as.numeric(as.character(pi_IT$pi_3))
+pi_IT$pi_4 <- as.numeric(as.character(pi_IT$pi_4))
+pi_IT$pi_5 <- as.numeric(as.character(pi_IT$pi_5))
+pi_IT$pi_6 <- as.numeric(as.character(pi_IT$pi_6))
+pi_ESi$pi_7 <- as.numeric(as.character(pi_ESi$pi_7))
+pi_ESi$pi_8 <- as.numeric(as.character(pi_ESi$pi_8))
+pi_ESi$pi_9 <- as.numeric(as.character(pi_ESi$pi_9))
+pi_ESii$pi_10 <- as.numeric(as.character(pi_ESii$pi_10))
+pi_ESii$pi_11 <- as.numeric(as.character(pi_ESii$pi_11))
+pi_ESii$pi_12 <- as.numeric(as.character(pi_ESii$pi_12))
+pi_ESii$pi_13 <- as.numeric(as.character(pi_ESii$pi_13))
+pi_ESii$pi_14 <- as.numeric(as.character(pi_ESii$pi_14))
+pi_ESii$pi_15 <- as.numeric(as.character(pi_ESii$pi_15))
 
 dds.pcoa=pcoa(vegdist(t((pi_all[,2:16])), method="euclidean")/100)
 scores=dds.pcoa$vectors
@@ -415,19 +489,19 @@ percent / sum(percent) #percent for each axes; change in caption below
 
 labels1 <- c("IT-1","IT-2","IT-3","IT-4","IT-5","IT-6","ESi-1","ESi-2","ESi-3","ESii-1","ESii-2","ESii-3","ESii-4","ESii-5","ESii-6")
 
-pdf(file.path("PCA_temperature_nucl_div_Upust_15pops_PC1_PC2_NEW.pdf"))
+pdf(file.path("PCA_temperature_nucl_div_Upust_15pops_PC1_PC2.pdf"))
 plot(scores[,1], scores[,2],
      col=c("red","red","red","red","purple","blue", "red","blue","blue", "red","red","purple","blue","blue","blue"), 
      pch = c(19,19,19,19,19,19,19,19,19,19,19,19,19,19,19),
-     xlab = "PC1 (30.59%)", ylab = "PC2 (20.19%)",main="Nucleotide diversity, temperature loci",sub="Umbilicaria pustulata, Sardinian and Spanish gradients",)
+     xlab = "PC1 (40.93%)", ylab = "PC2 (25.84%)",main="Nucleotide diversity, temperature loci",sub="Umbilicaria pustulata, Sardinian and Spanish gradients",)
 text(scores[,1], scores[,2], labels=labels1, cex= 0.7, pos=4)
 dev.off()
 
-pdf(file.path("PCA_temperature_nucl_div_Upust_15pops_PC2_PC3_NEW.pdf"))
+pdf(file.path("PCA_temperature_nucl_div_Upust_15pops_PC2_PC3.pdf"))
 plot(scores[,2], scores[,3],
      col=c("red","red","red","red","purple","blue", "red","blue","blue", "red","red","purple","blue","blue","blue"), 
      pch = c(19,19,19,19,19,19,19,19,19,19,19,19,19,19,19),
-     xlab = "PC2 (20.19%)", ylab = "PC3 (9.22%)",main="Nucleotide diversity, temperature loci",sub="Umbilicaria pustulata, Sardinian and Spanish gradients",)
+     xlab = "PC2 (25.84%)", ylab = "PC3 (9.58%)",main="Nucleotide diversity, temperature loci",sub="Umbilicaria pustulata, Sardinian and Spanish gradients",)
 text(scores[,2], scores[,3], labels=labels1, cex= 0.7, pos=4)
 dev.off()
 
@@ -446,11 +520,11 @@ clim_df <- data.frame(
 line_site <- site_df$line
 line_clim <- clim_df$line
 
-adonis2_site <- adonis2(t(pi_all[,2:16])~line, data = site_df, permutations = 1000000, method = "manhattan") # 
-adonis2_clim <- adonis2(t(pi_all[,2:16])~line, data = clim_df, permutations = 1000000, method = "manhattan") # 
+adonis2_site <- adonis2(t(pi_all[,2:16])~line, data = site_df, permutations = 1000000, method = "manhattan") 
+adonis2_clim <- adonis2(t(pi_all[,2:16])~line, data = clim_df, permutations = 1000000, method = "manhattan")
 
-capture.output(adonis2_site, file = "Upust_adonis2_temperature_site_NEW.txt")
-capture.output(adonis2_clim, file = "Upust_adonis2_temperature_clim_NEW.txt")
+capture.output(adonis2_site, file = "Upust_adonis2_temperature_site.txt")
+capture.output(adonis2_clim, file = "Upust_adonis2_temperature_clim.txt")
 
 write.table(pi_all, file = "Upust_temperature_GO_all.pi", sep = "\t", na = "", quote = F, row.names = F, col.names = T)
 
@@ -465,6 +539,10 @@ library(tidyr)
 library(ape)
 library(vegan)
 library(dplyr)
+library(stringr)
+library(reshape2)
+library(ggplot2)
+library(R.devices)
 
 #import each pi file 
 
@@ -551,18 +629,19 @@ pi_all8 <- merge(pi_all7, pi_26, by="ID")
 pi_all9 <- merge(pi_all8, pi_27, by="ID")
 pi_all <- merge(pi_all9, pi_28, by="ID")
 
-pi_all$pi_16 <- as.numeric(pi_all$pi_16)
-pi_all$pi_17 <- as.numeric(pi_all$pi_17)
-pi_all$pi_18 <- as.numeric(pi_all$pi_18)
-pi_all$pi_19 <- as.numeric(pi_all$pi_19)
+# convert to numeric
+pi_all$pi_16 <- as.numeric(as.character(pi_all$pi_16))
+pi_all$pi_17 <- as.numeric(as.character(pi_all$pi_17))
+pi_all$pi_18 <- as.numeric(as.character(pi_all$pi_18))
+pi_all$pi_19 <- as.numeric(as.character(pi_all$pi_19))
 
-pi_all$pi_22 <- as.numeric(pi_all$pi_22)
-pi_all$pi_23 <- as.numeric(pi_all$pi_23)
-pi_all$pi_24 <- as.numeric(pi_all$pi_24)
-pi_all$pi_25 <- as.numeric(pi_all$pi_25)
-pi_all$pi_26 <- as.numeric(pi_all$pi_26)
-pi_all$pi_27 <- as.numeric(pi_all$pi_27)
-pi_all$pi_28 <- as.numeric(pi_all$pi_28)
+pi_all$pi_22 <- as.numeric(as.character(pi_all$pi_22))
+pi_all$pi_23 <- as.numeric(as.character(pi_all$pi_23))
+pi_all$pi_24 <- as.numeric(as.character(pi_all$pi_24))
+pi_all$pi_25 <- as.numeric(as.character(pi_all$pi_25))
+pi_all$pi_26 <- as.numeric(as.character(pi_all$pi_26))
+pi_all$pi_27 <- as.numeric(as.character(pi_all$pi_27))
+pi_all$pi_28 <- as.numeric(as.character(pi_all$pi_28))
 
 dds.pcoa=pcoa(vegdist(t((pi_all[,2:12])), method="euclidean")/100)
 scores=dds.pcoa$vectors
@@ -571,19 +650,19 @@ percent / sum(percent) #percent for each axes; change in caption below
 
 labels1 <- c("SN-1", "SN-2", "SN-3", "SN-4","MJ-1","MJ-2","MJ-3","MJ-4","MJ-5","MJ-6","MJ-7")
 
-pdf(file.path("PCA_circadian_nucl_div_Uph_11pops_PC1_PC2_NEW.pdf"))
+pdf(file.path("PCA_circadian_nucl_div_Uph_11pops_PC1_PC2.pdf"))
 plot(scores[,1], scores[,2],
      col=c("red","red","purple","blue", "red","red","red","purple","blue","blue","blue"),
      pch = c(19,19,19,19,19,19,19,19,19,19,19),
-     xlab = "PC1 (23.89%)", ylab = "PC2 (21.73%)",main="Nucleotide diversity, temperature loci",sub="Umbilicaria phaea, Sierra Nevada and Mt Jacinto Gradients",)
+     xlab = "PC1 (23.89%)", ylab = "PC2 (21.17%)",main="Nucleotide diversity, temperature loci",sub="Umbilicaria phaea, Sierra Nevada and Mt Jacinto Gradients",)
 text(scores[,1], scores[,2], labels=labels1, cex= 0.7, pos=4)
 dev.off()
 
-pdf(file.path("PCA_circadian_nucl_div_Uph_11pops_PC2_PC3_NEW.pdf"))
+pdf(file.path("PCA_circadian_nucl_div_Uph_11pops_PC2_PC3.pdf"))
 plot(scores[,2], scores[,3],
      col=c("red","red","purple","blue", "red","red","red","purple","blue","blue","blue"),
      pch = c(19,19,19,19,19,19,19,19,19,19,19),
-     xlab = "PC2 (21.73%)", ylab = "PC3 (13.86%)",main="Nucleotide diversity, temperature loci",sub="Umbilicaria phaea, Sierra Nevada and Mt Jacinto Gradients",)
+     xlab = "PC2 (21.17%)", ylab = "PC3 (13.86%)",main="Nucleotide diversity, temperature loci",sub="Umbilicaria phaea, Sierra Nevada and Mt Jacinto Gradients",)
 text(scores[,2], scores[,3], labels=labels1, cex= 0.7, pos=4)
 dev.off()
 
@@ -602,11 +681,11 @@ clim_df <- data.frame(
 line_site <- site_df$line
 line_clim <- clim_df$line
 
-adonis2_site <- adonis2(t(pi_all[,2:12])~line, data = site_df, permutations = 1000000, method = "manhattan") # 0.1212
-adonis2_clim <- adonis2(t(pi_all[,2:12])~line, data = clim_df, permutations = 1000000, method = "manhattan") # 0.000155 ***
+adonis2_site <- adonis2(t(pi_all[,2:12])~line, data = site_df, permutations = 1000000, method = "manhattan") 
+adonis2_clim <- adonis2(t(pi_all[,2:12])~line, data = clim_df, permutations = 1000000, method = "manhattan")
 
-capture.output(adonis2_site, file = "Uph_adonis2_circadian_site_NEW.txt")
-capture.output(adonis2_clim, file = "Uph_adonis2_circadian_clim_NEW.txt")
+capture.output(adonis2_site, file = "Uph_adonis2_circadian_site.txt")
+capture.output(adonis2_clim, file = "Uph_adonis2_circadian_clim.txt")
 # climate zone is highly significant, but site is not
 
 write.table(pi_all, file = "Uph_circadian_GO_all.pi", sep = "\t", na = "", quote = F, row.names = F, col.names = T)
@@ -620,6 +699,10 @@ library(tidyr)
 library(ape)
 library(vegan)
 library(dplyr)
+library(stringr)
+library(reshape2)
+library(ggplot2)
+library(R.devices)
 
 #import each pi file 
 
@@ -705,18 +788,19 @@ pi_all8 <- merge(pi_all7, pi_26, by="ID")
 pi_all9 <- merge(pi_all8, pi_27, by="ID")
 pi_all <- merge(pi_all9, pi_28, by="ID")
 
-pi_all$pi_16 <- as.numeric(pi_all$pi_16)
-pi_all$pi_17 <- as.numeric(pi_all$pi_17)
-pi_all$pi_18 <- as.numeric(pi_all$pi_18)
-pi_all$pi_19 <- as.numeric(pi_all$pi_19)
+# convert to numeric
+pi_all$pi_16 <- as.numeric(as.character(pi_all$pi_16))
+pi_all$pi_17 <- as.numeric(as.character(pi_all$pi_17))
+pi_all$pi_18 <- as.numeric(as.character(pi_all$pi_18))
+pi_all$pi_19 <- as.numeric(as.character(pi_all$pi_19))
 
-pi_all$pi_22 <- as.numeric(pi_all$pi_22)
-pi_all$pi_23 <- as.numeric(pi_all$pi_23)
-pi_all$pi_24 <- as.numeric(pi_all$pi_24)
-pi_all$pi_25 <- as.numeric(pi_all$pi_25)
-pi_all$pi_26 <- as.numeric(pi_all$pi_26)
-pi_all$pi_27 <- as.numeric(pi_all$pi_27)
-pi_all$pi_28 <- as.numeric(pi_all$pi_28)
+pi_all$pi_22 <- as.numeric(as.character(pi_all$pi_22))
+pi_all$pi_23 <- as.numeric(as.character(pi_all$pi_23))
+pi_all$pi_24 <- as.numeric(as.character(pi_all$pi_24))
+pi_all$pi_25 <- as.numeric(as.character(pi_all$pi_25))
+pi_all$pi_26 <- as.numeric(as.character(pi_all$pi_26))
+pi_all$pi_27 <- as.numeric(as.character(pi_all$pi_27))
+pi_all$pi_28 <- as.numeric(as.character(pi_all$pi_28))
 
 dds.pcoa=pcoa(vegdist(t((pi_all[,2:12])), method="euclidean")/100)
 scores=dds.pcoa$vectors
@@ -725,19 +809,19 @@ percent / sum(percent) #percent for each axes; change in caption below
 
 labels1 <- c("SN-1", "SN-2", "SN-3", "SN-4","MJ-1","MJ-2","MJ-3","MJ-4","MJ-5","MJ-6","MJ-7")
 
-pdf(file.path("PCA_temperature_nucl_div_Uph_11pops_PC1_PC2_NEW.pdf"))
+pdf(file.path("PCA_temperature_nucl_div_Uph_11pops_PC1_PC2.pdf"))
 plot(scores[,1], scores[,2],
      col=c("red","red","purple","blue", "red","red","red","purple","blue","blue","blue"),
      pch = c(19,19,19,19,19,19,19,19,19,19,19),
-     xlab = "PC1 (22.53%)", ylab = "PC2 (18.14%)",main="Nucleotide diversity, temperature loci",sub="Umbilicaria phaea, Sierra Nevada and Mt Jacinto Gradients",)
+     xlab = "PC1 (23.92%)", ylab = "PC2 (21.18%)",main="Nucleotide diversity, temperature loci",sub="Umbilicaria phaea, Sierra Nevada and Mt Jacinto Gradients",)
 text(scores[,1], scores[,2], labels=labels1, cex= 0.7, pos=4)
 dev.off()
 
-pdf(file.path("PCA_temperature_nucl_div_Uph_11pops_PC2_PC3_NEW.pdf"))
+pdf(file.path("PCA_temperature_nucl_div_Uph_11pops_PC2_PC3.pdf"))
 plot(scores[,2], scores[,3],
      col=c("red","red","purple","blue", "red","red","red","purple","blue","blue","blue"),
      pch = c(19,19,19,19,19,19,19,19,19,19,19),
-     xlab = "PC2 (18.14%)", ylab = "PC3 (13.15%)",main="Nucleotide diversity, temperature loci",sub="Umbilicaria phaea, Sierra Nevada and Mt Jacinto Gradients",)
+     xlab = "PC2 (21.18%)", ylab = "PC3 (13.09%)",main="Nucleotide diversity, temperature loci",sub="Umbilicaria phaea, Sierra Nevada and Mt Jacinto Gradients",)
 text(scores[,2], scores[,3], labels=labels1, cex= 0.7, pos=4)
 dev.off()
 
@@ -757,10 +841,10 @@ line_site <- site_df$line
 line_clim <- clim_df$line
 
 adonis2_site <- adonis2(t(pi_all[,2:12])~line, data = site_df, permutations = 1000000, method = "manhattan")
-adonis2_clim <- adonis2(t(pi_all[,2:12])~line, data = clim_df, permutations = 1000000, method = "manhattan") 
+adonis2_clim <- adonis2(t(pi_all[,2:12])~line, data = clim_df, permutations = 1000000, method = "manhattan")
 
-capture.output(adonis2_site, file = "Uph_adonis2_temperature_site_NEW.txt")
-capture.output(adonis2_clim, file = "Uph_adonis2_temperature_clim_NEW.txt")
+capture.output(adonis2_site, file = "Uph_adonis2_temperature_site.txt")
+capture.output(adonis2_clim, file = "Uph_adonis2_temperature_clim.txt")
 # climate zone is highly significant, but site is not
 
 write.table(pi_all, file = "Uph_temperature_GO_all.pi", sep = "\t", na = "", quote = F, row.names = F, col.names = T)
@@ -778,18 +862,20 @@ Finally, we analyze the nucleotide diversity data via NMDS using the vegan packa
 library(vegan)
 
 # load and prepare files
-pi_all <- read.delim("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/Upust_circadian_GO_all.pi", header = T)
+pi_all <- read.delim("Upust_circadian_GO_all.pi", header = T)
 pi_all1 <- pi_all[,-1]
 rownames(pi_all1) <- pi_all[,1]
 pi_all2 <- t(pi_all1)
 
-bioclim <- read.csv("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/bioclim_15pops_raw.csv", header = T)
+bioclim <- read.csv("bioclim_15pops_raw.csv", header = T)
 bioclim1 <- bioclim[,-1] 
 rownames(bioclim1) <- bioclim[,1]
 bioclim2 <- t(bioclim1)
 
 elevation <- bioclim2[,20]
 bio1 <- bioclim2[,1]
+bio6 <- bioclim2[,6]
+bio11 <- bioclim2[,11]
 
 treat=c("IT","IT","IT","IT","IT","IT","ESi","ESi","ESi","ESii","ESii","ESii","ESii","ESii","ESii")
 labels1 <- c("IT-1","IT-2","IT-3","IT-4","IT-5","IT-6","ESi-1","ESi-2","ESi-3","ESii-1","ESii-2","ESii-3","ESii-4","ESii-5","ESii-6")
@@ -801,21 +887,29 @@ nmds1 = metaMDS(pi_all2, # our data matrix (may need to be transformed with t() 
 # fit our environmental data and save envfit output
 en = envfit(nmds1, bioclim2, permutations = 999, na.rm = TRUE)
 en
-capture.output(en, file = "~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/Upust_circadian_envfit.txt")
+capture.output(en, file = "Upust_circadian_envfit.txt")
 
 # run ANOSIM (bio1 as categorical variable) and save output
 treat=c("red","red","red","red","purple","blue", "red","blue","blue", "red","red","purple","blue","blue","blue")
 ano = anosim(pi_all2, treat, distance = "bray", permutations = 9999)
 ano
-capture.output(ano, file = "~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/Upust_circadian_ANOSIM.txt")
+capture.output(ano, file = "Upust_circadian_ANOSIM.txt")
 
 
 # run Mantel test (bio1 as continuous variable) and save output
 dist.pi = vegdist(pi_all2, method = "bray") #abundance data frame - bray curtis dissimilarity
 dist.bio1 = dist(bio1, method = "euclidean") #environmental vector - euclidean distance
-pi_bio1 = mantel(dist.pi, dist.bio1, method = "spearman", permutations = 9999, na.rm = TRUE) #pi vs bio1 
+dist.bio6 = dist(bio6, method = "euclidean") #environmental vector - euclidean distance
+dist.bio11 = dist(bio11, method = "euclidean") #environmental vector - euclidean distance
+pi_bio1 = mantel(dist.pi, dist.bio1, method = "spearman", permutations = 999, na.rm = TRUE) #pi vs bio1 
+pi_bio6 = mantel(dist.pi, dist.bio6, method = "spearman", permutations = 999, na.rm = TRUE) #pi vs bio6 
+pi_bio11 = mantel(dist.pi, dist.bio11, method = "spearman", permutations = 999, na.rm = TRUE) #pi vs bio11 
 pi_bio1
-capture.output(pi_bio1, file = "~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/Upust_circadian_Mantel.txt")
+pi_bio6
+pi_bio11
+capture.output(pi_bio1, file = "Upust_circadian_Mantel_BIO1.txt")
+capture.output(pi_bio6, file = "Upust_circadian_Mantel_BIO6.txt")
+capture.output(pi_bio11, file = "Upust_circadian_Mantel_BIO11.txt")
 
 # check the stress plot
 stressplot(nmds1)
@@ -823,21 +917,28 @@ plot(nmds1)
 plot(nmds1,display=c("sites"))
 
 # plot elevation/bio1 using ordisurf and label the plot with labels1
-pdf(file.path("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/NMDS_circadian_nucl_div_Upust_15pops_elevation.pdf"))
+pdf(file.path("NMDS_circadian_nucl_div_Upust_15pops_elevation.pdf"))
 ordisurf(nmds1,elevation,main="",col="forestgreen")
 orditorp(nmds1,display="sites",col=c("red","red","red","red","purple","blue", "red","blue","blue", "red","red","purple","blue","blue","blue"),
          labels = labels1, air=0.01,cex=1.25)
 dev.off()
 
-pdf(file.path("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/NMDS_circadian_nucl_div_Upust_15pops_BIO1.pdf"))
+pdf(file.path("NMDS_circadian_nucl_div_Upust_15pops_BIO1.pdf"))
 ordisurf(nmds1,bio1,main="",col="black")
 #orditorp(nmds1,display="species",col="gray",air=0.01)
 orditorp(nmds1,display="sites",col=c("red","red","red","red","purple","blue", "red","blue","blue", "red","red","purple","blue","blue","blue"),
          labels = labels1, air=0.01,cex=1.25)
 dev.off()
 
+pdf(file.path("NMDS_circadian_nucl_div_Upust_15pops_BIO6.pdf"))
+ordisurf(nmds1,bio6,main="",col="black")
+#orditorp(nmds1,display="species",col="gray",air=0.01)
+orditorp(nmds1,display="sites",col=c("red","red","red","red","purple","blue", "red","blue","blue", "red","red","purple","blue","blue","blue"),
+         labels = labels1, air=0.01,cex=1.25)
+dev.off()
+
 # save a supplemental figure with all bioclim vectors
-pdf(file.path("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/NMDS_circadian_nucl_div_Upust_15pops_w_bioclim_vectors.pdf"))
+pdf(file.path("NMDS_circadian_nucl_div_Upust_15pops_w_bioclim_vectors.pdf"))
 ordiplot(nmds1,type="n")
 orditorp(nmds1,display="sites",col=c("red","red","red","red","purple","blue", "red","blue","blue", "red","red","purple","blue","blue","blue"),
          labels = labels1, air=0.01,cex=1.25)
@@ -852,18 +953,20 @@ dev.off()
 library(vegan)
 
 # load and prepare files
-pi_all <- read.delim("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/Upust_temperature_GO_all.pi", header = T)
+pi_all <- read.delim("Upust_temperature_GO_all.pi", header = T)
 pi_all1 <- pi_all[,-1]
 rownames(pi_all1) <- pi_all[,1]
 pi_all2 <- t(pi_all1)
 
-bioclim <- read.csv("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/bioclim_15pops_raw.csv", header = T)
+bioclim <- read.csv("bioclim_15pops_raw.csv", header = T)
 bioclim1 <- bioclim[,-1] 
 rownames(bioclim1) <- bioclim[,1]
 bioclim2 <- t(bioclim1)
 
 elevation <- bioclim2[,20]
 bio1 <- bioclim2[,1]
+bio6 <- bioclim2[,6]
+bio11 <- bioclim2[,11]
 
 treat=c("IT","IT","IT","IT","IT","IT","ESi","ESi","ESi","ESii","ESii","ESii","ESii","ESii","ESii")
 labels1 <- c("IT-1","IT-2","IT-3","IT-4","IT-5","IT-6","ESi-1","ESi-2","ESi-3","ESii-1","ESii-2","ESii-3","ESii-4","ESii-5","ESii-6")
@@ -875,21 +978,29 @@ nmds1 = metaMDS(pi_all2, # our data matrix (may need to be transformed with t() 
 # fit our environmental data and save envfit output
 en = envfit(nmds1, bioclim2, permutations = 999, na.rm = TRUE)
 en
-capture.output(en, file = "~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/Upust_temperature_envfit.txt")
+capture.output(en, file = "Upust_temperature_envfit.txt")
 
 # run ANOSIM (bio1 as categorical variable) and save output
 treat=c("red","red","red","red","purple","blue", "red","blue","blue", "red","red","purple","blue","blue","blue")
 ano = anosim(pi_all2, treat, distance = "bray", permutations = 9999)
 ano
-capture.output(ano, file = "~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/Upust_temperature_ANOSIM.txt")
+capture.output(ano, file = "Upust_temperature_ANOSIM.txt")
 
 
 # run Mantel test (bio1 as continuous variable) and save output
 dist.pi = vegdist(pi_all2, method = "bray") #abundance data frame - bray curtis dissimilarity
 dist.bio1 = dist(bio1, method = "euclidean") #environmental vector - euclidean distance
+dist.bio6 = dist(bio6, method = "euclidean") #environmental vector - euclidean distance
+dist.bio11 = dist(bio11, method = "euclidean") #environmental vector - euclidean distance
 pi_bio1 = mantel(dist.pi, dist.bio1, method = "spearman", permutations = 9999, na.rm = TRUE) #pi vs bio1 
+pi_bio6 = mantel(dist.pi, dist.bio6, method = "spearman", permutations = 9999, na.rm = TRUE) #pi vs bio6 
+pi_bio11 = mantel(dist.pi, dist.bio11, method = "spearman", permutations = 9999, na.rm = TRUE) #pi vs bio6 
 pi_bio1
-capture.output(pi_bio1, file = "~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/Upust_temperature_Mantel.txt")
+pi_bio6
+pi_bio11
+capture.output(pi_bio1, file = "Upust_temperature_Mantel_BIO1.txt")
+capture.output(pi_bio6, file = "Upust_temperature_Mantel_BIO6.txt")
+capture.output(pi_bio11, file = "Upust_temperature_Mantel_BIO11.txt")
 
 # check the stress plot
 stressplot(nmds1)
@@ -897,21 +1008,29 @@ plot(nmds1)
 plot(nmds1,display=c("sites"))
 
 # plot elevation/bio1 using ordisurf and label the plot with labels1
-pdf(file.path("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/NMDS_temperature_nucl_div_Upust_15pops_elevation.pdf"))
+pdf(file.path("NMDS_temperature_pi_Upust_15pops_elevation.pdf"))
 ordisurf(nmds1,elevation,main="",col="forestgreen")
 orditorp(nmds1,display="sites",col=c("red","red","red","red","purple","blue", "red","blue","blue", "red","red","purple","blue","blue","blue"),
          labels = labels1, air=0.01,cex=1.25)
 dev.off()
 
-pdf(file.path("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/NMDS_temperature_nucl_div_Upust_15pops_BIO1.pdf"))
+pdf(file.path("NMDS_temperature_pi_Upust_15pops_BIO1.pdf"))
 ordisurf(nmds1,bio1,main="",col="black")
 #orditorp(nmds1,display="species",col="gray",air=0.01)
 orditorp(nmds1,display="sites",col=c("red","red","red","red","purple","blue", "red","blue","blue", "red","red","purple","blue","blue","blue"),
          labels = labels1, air=0.01,cex=1.25)
 dev.off()
 
+pdf(file.path("NMDS_temperature_pi_Upust_15pops_BIO6.pdf"))
+ordisurf(nmds1,bio6,main="",col="black")
+#orditorp(nmds1,display="species",col="gray",air=0.01)
+orditorp(nmds1,display="sites",col=c("red","red","red","red","purple","blue", "red","blue","blue", "red","red","purple","blue","blue","blue"),
+         labels = labels1, air=0.01,cex=1.25)
+dev.off()
+
+
 # save a supplemental figure with all bioclim vectors
-pdf(file.path("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/NMDS_temperature_nucl_div_Upust_15pops_w_bioclim_vectors.pdf"))
+pdf(file.path("NMDS_temperature_pi_Upust_15pops_w_bioclim_vectors.pdf"))
 ordiplot(nmds1,type="n")
 orditorp(nmds1,display="sites",col=c("red","red","red","red","purple","blue", "red","blue","blue", "red","red","purple","blue","blue","blue"),
          labels = labels1, air=0.01,cex=1.25)
@@ -927,12 +1046,12 @@ dev.off()
 library(vegan)
 
 # load and prepare files
-pi_all <- read.delim("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/Uph_circadian_GO_all.pi", header = T)
+pi_all <- read.delim("Uph_circadian_GO_all.pi", header = T)
 pi_all1 <- pi_all[,-1]
 rownames(pi_all1) <- pi_all[,1]
 pi_all2 <- t(pi_all1)
 
-bioclim <- read.csv("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/bioclim_11pops_raw.csv", header = T)
+bioclim <- read.csv("bioclim_11pops_raw.csv", header = T)
 bioclim$ID <- paste(bioclim$site, bioclim$pop, sep = '_') # make id column
 bioclim1 <- bioclim[,-c(1:2,15)] 
 rownames(bioclim1) <- bioclim[,15]
@@ -940,6 +1059,8 @@ bioclim2 <- as.matrix(bioclim1)
 
 elevation <- bioclim2[,12]
 bio1 <- bioclim2[,1]
+bio6 <- bioclim2[,2]
+bio11 <- bioclim2[,5]
 
 labels1 <- c("SN-1", "SN-2", "SN-3", "SN-4","MJ-1","MJ-2","MJ-3","MJ-4","MJ-5","MJ-6","MJ-7")
 
@@ -950,21 +1071,29 @@ nmds1 = metaMDS(pi_all2, # our data matrix (may need to be transformed with t() 
 # fit our environmental data and save envfit output
 en = envfit(nmds1, bioclim2, permutations = 999, na.rm = TRUE)
 en
-capture.output(en, file = "~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/Uph_circadian_envfit.txt")
+capture.output(en, file = "Uph_circadian_envfit.txt")
 
 # run ANOSIM and save output
 treat=c("red","red","purple","blue", "red","red","red","purple","blue","blue","blue")
 ano = anosim(pi_all2, treat, distance = "bray", permutations = 9999)
 ano
-capture.output(ano, file = "~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/Uph_circadian_ANOSIM.txt")
+capture.output(ano, file = "Uph_circadian_ANOSIM.txt")
 
 
 # run Mantel test (bio1 as continuous variable) and save output
 dist.pi = vegdist(pi_all2, method = "bray") #abundance data frame - bray curtis dissimilarity
 dist.bio1 = dist(bio1, method = "euclidean") #environmental vector - euclidean distance
+dist.bio6 = dist(bio6, method = "euclidean") #environmental vector - euclidean distance
+dist.bio11 = dist(bio11, method = "euclidean") #environmental vector - euclidean distance
 pi_bio1 = mantel(dist.pi, dist.bio1, method = "spearman", permutations = 9999, na.rm = TRUE) #pi vs bio1 
+pi_bio6 = mantel(dist.pi, dist.bio6, method = "spearman", permutations = 9999, na.rm = TRUE) #pi vs bio6 
+pi_bio11 = mantel(dist.pi, dist.bio11, method = "spearman", permutations = 9999, na.rm = TRUE) #pi vs bio6 
 pi_bio1
-capture.output(pi_bio1, file = "~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/Uph_circadian_Mantel.txt")
+pi_bio6
+pi_bio11
+capture.output(pi_bio1, file = "Uph_circadian_Mantel_BIO1.txt")
+capture.output(pi_bio6, file = "Uph_circadian_Mantel_BIO6.txt")
+capture.output(pi_bio11, file = "Uph_circadian_Mantel_BIO11.txt")
 
 # check the stress plot
 stressplot(nmds1)
@@ -972,21 +1101,28 @@ plot(nmds1)
 plot(nmds1,display=c("sites"))
 
 # plot elevation/bio1 using ordisurf and label the plot with labels1
-pdf(file.path("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/NMDS_circadian_nucl_div_Uph_11pops_elevation.pdf"))
+pdf(file.path("NMDS_circadian_pi_Uph_11pops_elevation.pdf"))
 ordisurf(nmds1,elevation,main="",col="forestgreen")
 orditorp(nmds1,display="sites",col=c("red","red","purple","blue", "red","red","red","purple","blue","blue","blue"),
          labels = labels1, air=0.01,cex=1.25)
 dev.off()
 
-pdf(file.path("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/NMDS_circadian_nucl_div_Uph_11pops_BIO1.pdf"))
+pdf(file.path("NMDS_circadian_pi_Uph_11pops_BIO1.pdf"))
 ordisurf(nmds1,bio1,main="",col="black")
 #orditorp(nmds1,display="species",col="gray",air=0.01)
 orditorp(nmds1,display="sites",col=c("red","red","purple","blue", "red","red","red","purple","blue","blue","blue"),
          labels = labels1, air=0.01,cex=1.25)
 dev.off()
 
+pdf(file.path("NMDS_circadian_pi_Uph_11pops_BIO6.pdf"))
+ordisurf(nmds1,bio6,main="",col="black")
+#orditorp(nmds1,display="species",col="gray",air=0.01)
+orditorp(nmds1,display="sites",col=c("red","red","purple","blue", "red","red","red","purple","blue","blue","blue"),
+         labels = labels1, air=0.01,cex=1.25)
+dev.off()
+
 # save a supplemental figure with all bioclim vectors
-pdf(file.path("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/NMDS_circadian_nucl_div_Uph_11pops_w_bioclim_vectors.pdf"))
+pdf(file.path("NMDS_circadian_pi_Uph_11pops_w_bioclim_vectors.pdf"))
 ordiplot(nmds1,type="n")
 orditorp(nmds1,display="sites",col=c("red","red","purple","blue", "red","red","red","purple","blue","blue","blue"),
          labels = labels1, air=0.01,cex=1.25)
@@ -1001,12 +1137,12 @@ dev.off()
 library(vegan)
 
 # load and prepare files
-pi_all <- read.delim("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/Uph_temperature_GO_all.pi", header = T)
+pi_all <- read.delim("Uph_temperature_GO_all.pi", header = T)
 pi_all1 <- pi_all[,-1]
 rownames(pi_all1) <- pi_all[,1]
 pi_all2 <- t(pi_all1)
 
-bioclim <- read.csv("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/bioclim_11pops_raw.csv", header = T)
+bioclim <- read.csv("bioclim_11pops_raw.csv", header = T)
 bioclim$ID <- paste(bioclim$site, bioclim$pop, sep = '_') # make id column
 bioclim1 <- bioclim[,-c(1:2,15)] 
 rownames(bioclim1) <- bioclim[,15]
@@ -1014,6 +1150,8 @@ bioclim2 <- as.matrix(bioclim1)
 
 elevation <- bioclim2[,12]
 bio1 <- bioclim2[,1]
+bio6 <- bioclim2[,2]
+bio11 <- bioclim2[,5]
 
 labels1 <- c("SN-1", "SN-2", "SN-3", "SN-4","MJ-1","MJ-2","MJ-3","MJ-4","MJ-5","MJ-6","MJ-7")
 
@@ -1024,21 +1162,29 @@ nmds1 = metaMDS(pi_all2, # our data matrix (may need to be transformed with t() 
 # fit our environmental data and save envfit output
 en = envfit(nmds1, bioclim2, permutations = 999, na.rm = TRUE)
 en
-capture.output(en, file = "~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/Uph_temperature_envfit.txt")
+capture.output(en, file = "Uph_temperature_envfit.txt")
 
 # run ANOSIM and save output
 treat=c("red","red","purple","blue", "red","red","red","purple","blue","blue","blue")
 ano = anosim(pi_all2, treat, distance = "bray", permutations = 9999)
 ano
-capture.output(ano, file = "~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/Uph_temperature_ANOSIM.txt")
+capture.output(ano, file = "Uph_temperature_ANOSIM.txt")
 
 
 # run Mantel test (bio1 as continuous variable) and save output
 dist.pi = vegdist(pi_all2, method = "bray") #abundance data frame - bray curtis dissimilarity
 dist.bio1 = dist(bio1, method = "euclidean") #environmental vector - euclidean distance
+dist.bio6 = dist(bio6, method = "euclidean") #environmental vector - euclidean distance
+dist.bio11 = dist(bio11, method = "euclidean") #environmental vector - euclidean distance
 pi_bio1 = mantel(dist.pi, dist.bio1, method = "spearman", permutations = 9999, na.rm = TRUE) #pi vs bio1 
+pi_bio6 = mantel(dist.pi, dist.bio6, method = "spearman", permutations = 9999, na.rm = TRUE) #pi vs bio6 
+pi_bio11 = mantel(dist.pi, dist.bio11, method = "spearman", permutations = 9999, na.rm = TRUE) #pi vs bio11 
 pi_bio1
-capture.output(pi_bio1, file = "~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/Uph_temperature_Mantel.txt")
+pi_bio6
+pi_bio11
+capture.output(pi_bio1, file = "Uph_temperature_Mantel_BIO1.txt")
+capture.output(pi_bio6, file = "Uph_temperature_Mantel_BIO6.txt")
+capture.output(pi_bio11, file = "Uph_temperature_Mantel_BIO11.txt")
 
 # check the stress plot
 stressplot(nmds1)
@@ -1046,21 +1192,28 @@ plot(nmds1)
 plot(nmds1,display=c("sites"))
 
 # plot elevation/bio1 using ordisurf and label the plot with labels1
-pdf(file.path("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/NMDS_temperature_nucl_div_Uph_11pops_elevation.pdf"))
+pdf(file.path("NMDS_temperature_nucl_div_Uph_11pops_elevation.pdf"))
 ordisurf(nmds1,elevation,main="",col="forestgreen")
 orditorp(nmds1,display="sites",col=c("red","red","purple","blue", "red","red","red","purple","blue","blue","blue"),
          labels = labels1, air=0.01,cex=1.25)
 dev.off()
 
-pdf(file.path("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/NMDS_temperature_nucl_div_Uph_11pops_BIO1.pdf"))
+pdf(file.path("NMDS_temperature_nucl_div_Uph_11pops_BIO1.pdf"))
 ordisurf(nmds1,bio1,main="",col="black")
 #orditorp(nmds1,display="species",col="gray",air=0.01)
 orditorp(nmds1,display="sites",col=c("red","red","purple","blue", "red","red","red","purple","blue","blue","blue"),
          labels = labels1, air=0.01,cex=1.25)
 dev.off()
 
+pdf(file.path("NMDS_temperature_nucl_div_Uph_11pops_BIO6.pdf"))
+ordisurf(nmds1,bio6,main="",col="black")
+#orditorp(nmds1,display="species",col="gray",air=0.01)
+orditorp(nmds1,display="sites",col=c("red","red","purple","blue", "red","red","red","purple","blue","blue","blue"),
+         labels = labels1, air=0.01,cex=1.25)
+dev.off()
+
 # save a supplemental figure with all bioclim vectors
-pdf(file.path("~/Dropbox (Senckenberg)/Valim/04_Bioinformatic_work/05_Population_genetics/NMDS_temperature_nucl_div_Uph_11pops_w_bioclim_vectors.pdf"))
+pdf(file.path("NMDS_temperature_nucl_div_Uph_11pops_w_bioclim_vectors.pdf"))
 ordiplot(nmds1,type="n")
 orditorp(nmds1,display="sites",col=c("red","red","purple","blue", "red","red","red","purple","blue","blue","blue"),
          labels = labels1, air=0.01,cex=1.25)
@@ -1068,4 +1221,3 @@ plot(en, col = "gray40")
 dev.off()
 
 ```
-
