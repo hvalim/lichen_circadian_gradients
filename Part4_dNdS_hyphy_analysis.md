@@ -11,11 +11,11 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # dN/dS analyses of gradients
 
-Begin by extracting just the reads for the clock genes from the reference genomes.
+Begin by extracting just the reads for the clock and temperature gene CDS from the reference genomes.
 
 Then we make an indexed "genome" of just the clock genes, and then follow the code to map and align these separately using samtools and bcftools
 
-  NOTE: you may need to manually re-name the genes to make sure there are no overlaps (i.e. same chromosome and no gene name); here the names match Table S2 in the manuscript.
+  NOTE: you may need to manually re-name the genes to make sure there are no overlaps (i.e. same chromosome and no gene name); here the names match Tables S3 and S4 in the manuscript.
 
 ## 1. Index set of circadian homologs (in conda env poolseq)
 
@@ -23,7 +23,15 @@ Then we make an indexed "genome" of just the clock genes, and then follow the co
 
 conda activate poolseq
 
-bwa index Uph_circadian.fasta # etc
+# for U. pustulata:
+
+bwa index Upust_circadian.fasta
+bwa index Upust_temperature.fasta
+
+# for U. phaea:
+
+bwa index Uph_circadian.fasta 
+bwa index Uph_temperature.fasta 
 ```
 	
 
@@ -32,28 +40,28 @@ bwa index Uph_circadian.fasta # etc
 ```{bash}
 
 ### for U. pustulata circadian loci:
-for i in 1 2 3 4 5 6; do bwa mem -M -t 12 -R '@RG\tID:group1\tSM:Upust_IT${i}\tPL:illumina\tLB:lib1\tPU:Upust_IT${i}' -p Upust_circadian.fasta /phylodata/fdalgrande/TRIMMED_PoolSeq_3gradients/IT_Pool${i}_paired_interleaved.fq > Upust_IT${i}_circadian_aligned_reads.sam; done
+for i in 1 2 3 4 5 6; do bwa mem -M -t 12 -R '@RG\tID:group1\tSM:Upust_IT${i}\tPL:illumina\tLB:lib1\tPU:Upust_IT${i}' -p Upust_circadian.fasta IT_Pool${i}_paired_interleaved.fq > Upust_IT${i}_circadian_aligned_reads.sam; done
 
-for i in 1 2 3 4 5 6; do bwa mem -M -t 12 -R '@RG\tID:group1\tSM:Upust_ESii${i}\tPL:illumina\tLB:lib1\tPU:Upust_ESii${i}' -p Upust_circadian.fasta /phylodata/fdalgrande/TRIMMED_PoolSeq_3gradients/ESii_Pool${i}_paired_interleaved.fq > Upust_ESii${i}_circadian_aligned_reads.sam; done
+for i in 1 2 3 4 5 6; do bwa mem -M -t 12 -R '@RG\tID:group1\tSM:Upust_ESii${i}\tPL:illumina\tLB:lib1\tPU:Upust_ESii${i}' -p Upust_circadian.fasta ESii_Pool${i}_paired_interleaved.fq > Upust_ESii${i}_circadian_aligned_reads.sam; done
 
-for i in 1 2 3; do bwa mem -M -t 12 -R '@RG\tID:group1\tSM:Upust_ESi${i}\tPL:illumina\tLB:lib1\tPU:Upust_ESi${i}' -p Upust_circadian.fasta /phylodata/fdalgrande/TRIMMED_PoolSeq_3gradients/ESi_Pool${i}_paired_interleaved.fq > Upust_ESi${i}_circadian_aligned_reads.sam; done
+for i in 1 2 3; do bwa mem -M -t 12 -R '@RG\tID:group1\tSM:Upust_ESi${i}\tPL:illumina\tLB:lib1\tPU:Upust_ESi${i}' -p Upust_circadian.fasta ESi_Pool${i}_paired_interleaved.fq > Upust_ESi${i}_circadian_aligned_reads.sam; done
 
 
 ### for U. phaea circadian loci:
-for i in 16 17 18 19 22 23 24 25 26 27 28; do bwa mem -M -t 12 -R '@RG\tID:group1\tSM:Uph${i}\tPL:illumina\tLB:lib1\tPU:Uph${i}' -p Uph_circadian.fasta /gendata_is/fdalgrande/Poolseq_Uphaea_X201SC20030623-Z01-F001_raw_data/raw_data/Uph${i}/Uph${i}_*_L4_paired_interleaved.fq > Uph${i}_circadian_aligned_reads.sam; done
+for i in 16 17 18 19 22 23 24 25 26 27 28; do bwa mem -M -t 12 -R '@RG\tID:group1\tSM:Uph${i}\tPL:illumina\tLB:lib1\tPU:Uph${i}' -p Uph_circadian.fasta Uph${i}_*_L4_paired_interleaved.fq > Uph${i}_circadian_aligned_reads.sam; done
 
 
 
 ### for U. pustulata temperature loci:
-for i in 1 2 3 4 5 6; do bwa mem -M -t 12 -R '@RG\tID:group1\tSM:Upust_IT${i}\tPL:illumina\tLB:lib1\tPU:Upust_IT${i}' -p Upust_temperature.fasta /phylodata/fdalgrande/TRIMMED_PoolSeq_3gradients/IT_Pool${i}_paired_interleaved.fq > Upust_IT${i}_temperature_aligned_reads.sam; done
+for i in 1 2 3 4 5 6; do bwa mem -M -t 12 -R '@RG\tID:group1\tSM:Upust_IT${i}\tPL:illumina\tLB:lib1\tPU:Upust_IT${i}' -p Upust_temperature.fasta IT_Pool${i}_paired_interleaved.fq > Upust_IT${i}_temperature_aligned_reads.sam; done
 
-for i in 1 2 3 4 5 6; do bwa mem -M -t 12 -R '@RG\tID:group1\tSM:Upust_ESii${i}\tPL:illumina\tLB:lib1\tPU:Upust_ESii${i}' -p Upust_temperature.fasta /phylodata/fdalgrande/TRIMMED_PoolSeq_3gradients/ESii_Pool${i}_paired_interleaved.fq > Upust_ESii${i}_temperature_aligned_reads.sam; done
+for i in 1 2 3 4 5 6; do bwa mem -M -t 12 -R '@RG\tID:group1\tSM:Upust_ESii${i}\tPL:illumina\tLB:lib1\tPU:Upust_ESii${i}' -p Upust_temperature.fasta ESii_Pool${i}_paired_interleaved.fq > Upust_ESii${i}_temperature_aligned_reads.sam; done
 
-for i in 1 2 3; do bwa mem -M -t 12 -R '@RG\tID:group1\tSM:Upust_ESi${i}\tPL:illumina\tLB:lib1\tPU:Upust_ESi${i}' -p Upust_temperature.fasta /phylodata/fdalgrande/TRIMMED_PoolSeq_3gradients/ESi_Pool${i}_paired_interleaved.fq > Upust_ESi${i}_temperature_aligned_reads.sam; done
+for i in 1 2 3; do bwa mem -M -t 12 -R '@RG\tID:group1\tSM:Upust_ESi${i}\tPL:illumina\tLB:lib1\tPU:Upust_ESi${i}' -p Upust_temperature.fasta ESi_Pool${i}_paired_interleaved.fq > Upust_ESi${i}_temperature_aligned_reads.sam; done
 
 
 ### for U. phaea temperature loci:
-for i in 16 17 18 19 22 23 24 25 26 27 28; do bwa mem -M -t 12 -R '@RG\tID:group1\tSM:Uph${i}\tPL:illumina\tLB:lib1\tPU:Uph${i}' -p Uph_temperature.fasta /gendata_is/fdalgrande/Poolseq_Uphaea_X201SC20030623-Z01-F001_raw_data/raw_data/Uph${i}/Uph${i}_*_L4_paired_interleaved.fq > Uph${i}_temperature_aligned_reads.sam; done
+for i in 16 17 18 19 22 23 24 25 26 27 28; do bwa mem -M -t 12 -R '@RG\tID:group1\tSM:Uph${i}\tPL:illumina\tLB:lib1\tPU:Uph${i}' -p Uph_temperature.fasta Uph${i}_*_L4_paired_interleaved.fq > Uph${i}_temperature_aligned_reads.sam; done
 
 ```
 	
@@ -101,9 +109,6 @@ for i in 16 17 18 19 22 23 24 25 26 27 28; do java -Xmx8g -jar ~/tools/picard.ja
 for i in 16 17 18 19 22 23 24 25 26 27 28; do samtools view -q 20 -f 0x0002 -F 0x0004 -F 0x0008 -b Uph${i}_circadian_only_mapped.sort.rmd.bam > Uph${i}_circadian_only_mapped.sort.rmd.q20.bam; done
 
 
-
-
-
 ### for U. phaea temperature-associated loci:
 for i in 16 17 18 19 22 23 24 25 26 27 28; do samtools view -Sb Uph${i}_temperature_aligned_reads.sam > Uph${i}_temperature_aligned_reads.bam; done
 
@@ -130,30 +135,23 @@ for pop in IT1 IT2 IT3 IT4 IT5 IT6 ESii1 ESii2 ESii3 ESii4 ESii5 ESii6 ESi1 ESi2
 
 for pop in IT1 IT2 IT3 IT4 IT5 IT6 ESii1 ESii2 ESii3 ESii4 ESii5 ESii6 ESi1 ESi2 ESi3; do seqtk seq -aQ64 -q20 -n N Upust_${pop}_circadian.fastq > Upust_${pop}_circadian.fasta; done
 
-
 # for U. pustulata temperature genes:
 
 for pop in IT1 IT2 IT3 IT4 IT5 IT6 ESii1 ESii2 ESii3 ESii4 ESii5 ESii6 ESi1 ESi2 ESi3; do bcftools mpileup --fasta-ref Upust_temperature.fasta Upust_${pop}_temperature_only_mapped.sort.rmd.q20.bam | bcftools call -c | vcfutils.pl vcf2fq > Upust_${pop}_temperature.fastq; done
 
 for pop in IT1 IT2 IT3 IT4 IT5 IT6 ESii1 ESii2 ESii3 ESii4 ESii5 ESii6 ESi1 ESi2 ESi3; do seqtk seq -aQ64 -q20 -n N Upust_${pop}_temperature.fastq > Upust_${pop}_temperature.fasta; done
 
- 
- 
 # for U. phaea circadian genes:
 for i in 16 17 18 19 22 23 24 25 26 27 28; do bcftools mpileup --fasta-ref Uph_circadian.fasta Uph${i}_circadian_only_mapped.sort.rmd.q20.bam | bcftools call -c | vcfutils.pl vcf2fq > Uph${i}_circadian.fastq; done
 
 for i in 16 17 18 19 22 23 24 25 26 27 28; do seqtk seq -aQ64 -q20 -n N Uph${i}_circadian.fastq > Uph${i}_circadian.fasta; done
-
-
 
 # for U. phaea temperature genes:
 for i in 16 17 18 19 22 23 24 25 26 27 28; do bcftools mpileup --fasta-ref Uph_temperature.fasta Uph${i}_temperature_only_mapped.sort.rmd.q20.bam | bcftools call -c | vcfutils.pl vcf2fq > Uph${i}_temperature.fastq; done
 
 for i in 16 17 18 19 22 23 24 25 26 27 28; do seqtk seq -aQ64 -q20 -n N Uph${i}_temperature.fastq > Uph${i}_temperature.fasta; done
 
-
 ```
-
 
 ## 5. Sort these by gene (labeling and combining the copies from each population) and then perform an alignment and generate a tree using RAxML. Export the tree as *.nex (combined alignment and tree)
 
@@ -188,6 +186,8 @@ First for U. phaea:
 
 ```{bash}
 
+conda activate hyphy
+
 # for circadian genes:
 
 for gene in ACR2 ccg-1 ccg-9 CDC55 CHO2 CKB1 CKB2 con-6 con-10 csn-1 csn-2 csn-4 csn-6 csn-7a csp-2 DUN1 ecm33 FUN30 fwd-1 GAT1 GDP1-2 GLC7 hrp3 HRR25-1 HRR25-3 ISW2 KIN28 MgSsk1 MTR4 OPI1 PPG1 PPH3 PPT1 pzh1 ras1 ras2 RPN11 RRI1 RSR1 SEC4 SKI2-2 SNF2 SOD1 SSN3 TRR1 UME6 upf-1 VAS1 wc-1 wc-2 YCK2
@@ -203,7 +203,7 @@ mv Uph*combined1.fasta 01b_input_data/
 
 # for temperature genes:
 
-for gene in CCP1 DED1 hsp30 KIN28 LSP1 PRP28 PYC1 cut-1b cat-4 GET3 MKC1 NTH1_1 PRF1 DBP3 LSP1b cr-1 KAR2 PAN2 BUR1 gcy-3 HSP82 PHO85 SSB1 cat1b xyl1 DBP4 DBP10 wos2 gcy-1a HSP78_1 PRP5 CAT1 DBP2 SFL1 CTA8 gcy-1b SSA2 FBP1 DES1 SSC1 GSY1 LSK1 MRH4 dak1 HSP98 cut-1a GPA1 GPA1_2 GPH1 SSE1 NTH1_1
+for gene in CCP1 DED1 hsp30 KIN28 LSP1 PRP28 PYC1 cut-1b cat-4 GET3 MKC1 NTH1_1 PRF1 DBP3 LSP1b cr-1 KAR2 PAN2 BUR1 gcy-3 HSP82 PHO85 SSB1 cat1b xyl1 DBP4 DBP10 wos2 gcy-1a HSP78_1 PRP5 CAT1 DBP2 SFL1 CTA8 gcy-1b SSA2 FBP1 DES1 SSC1 GSY1 LSK1 MRH4 dak1 HSP98 cut-1a GPA1 GPA1_2 GPH1 SSE1 NTH1_1 HOG1 GPA2
   do for i in 16 17 18 19 22 23 24 25 26 27 28
     do seqkit grep -r -p "${gene}" Uph${i}_temperature.fasta > Uph${i}_${gene}.fasta
     cat Uph*_${gene}.fasta > Uph_${gene}_combined.fasta
@@ -219,9 +219,11 @@ Then for U. pustulata:
 
 ```{bash}
 
+conda activate hyphy
+
 # for circadian genes:
 
-for gene in acr-2 adv-1 ccg-1 ccg-7 ccg-9 Chd3 chol-1 ck-1a cka-1 cka-2 ckb-1-1 ckb-1-2 con-6 con-10 crf6-1 crf10-1 csn-1 csn-2 csn-4 csn-5-1 csn-5-2 csn-6 csn-7a csp-2 cys-9 ecm33 frh frh-2 frq fwd-1 isw-1 nit-2 pph-3-1 pph-3-2 pph-3-3 pph-3-4 prd-4-1 prd-4-2 ras-1-1 ras-1-2 ras-1-3 ras-2 rent-1 rgb-1 rrg-1 sod-1 vvd-1 vvd-2 wc-1 wc-2
+for gene in acr-2 adv-1 ccg-1 ccg-6 ccg-7 ccg-8 ccg-9 Chd3 chol-1 ck-1a cka-1 cka-2 ckb-1-1 ckb-1-2 con-6 con-10 crf6-1 crf10-1 csn-1 csn-2 csn-4 csn-5-1 csn-5-2 csn-6 csn-7a csp-2 cys-9 ecm33 frh frh-2 frq fwd-1 isw-1 nit-2 pph-3-1 pph-3-2 pph-3-3 pph-3-4 prd-4-1 prd-4-2 ras-1-1 ras-1-2 ras-1-3 ras-2 rent-1 rgb-1 rrg-1 sod-1 vvd-1 vvd-2 wc-1 wc-2
   do for pop in IT1 IT2 IT3 IT4 IT5 IT6 ESii1 ESii2 ESii3 ESii4 ESii5 ESii6 ESi1 ESi2 ESi3
     do seqkit grep -r -p "${gene}" Upust_${pop}_circadian.fasta > Upust_${pop}_${gene}.fasta
     cat Upust*_${gene}.fasta > Upust_${gene}_combined.fasta
@@ -261,7 +263,7 @@ done
 
 # for temperature genes
 
-for gene in CCP1 DED1 hsp30 KIN28 LSP1 PRP28 PYC1 cut-1b cat-4 GET3 MKC1 NTH1_1 PRF1 DBP3 LSP1b cr-1 KAR2 PAN2 BUR1 gcy-3 HSP82 PHO85 SSB1 cat1b xyl1 DBP4 DBP10 wos2 gcy-1a HSP78_1 PRP5 CAT1 DBP2 SFL1 CTA8 gcy-1b SSA2 FBP1 DES1 SSC1 GSY1 LSK1 MRH4 dak1 HSP98 cut-1a GPA1 GPA1_2 GPH1 SSE1 NTH1_1
+for gene in CCP1 DED1 hsp30 KIN28 LSP1 PRP28 PYC1 cut-1b cat-4 GET3 MKC1 NTH1_1 PRF1 DBP3 LSP1b cr-1 KAR2 PAN2 BUR1 gcy-3 HSP82 PHO85 SSB1 cat1b xyl1 DBP4 DBP10 wos2 gcy-1a HSP78_1 PRP5 CAT1 DBP2 SFL1 CTA8 gcy-1b SSA2 FBP1 DES1 SSC1 GSY1 LSK1 MRH4 dak1 HSP98 cut-1a GPA1 GPA1_2 GPH1 SSE1 NTH1_1 HOG1 GPA2
   do mafft Uph_${gene}_combined1.fasta > Uph_${gene}_combined1.msa
   raxmlHPC -m GTRGAMMA  -s Uph_${gene}_combined1.msa -n Uph_${gene}_combined1_tree
 done
@@ -274,7 +276,7 @@ For U. pustulata:
 
 # for circadian genes
 
-for gene in acr-2 adv-1 ccg-1 ccg-7 ccg-9 Chd3 chol-1 ck-1a cka-1 cka-2 ckb-1-1 ckb-1-2 con-6 con-10 crf6-1 crf10-1 csn-1 csn-2 csn-4 csn-5-1 csn-5-2 csn-6 csn-7a csp-2 cys-9 ecm33 frh frh-2 frq fwd-1 isw-1 nit-2 pph-3-1 pph-3-2 pph-3-3 pph-3-4 prd-4-1 prd-4-2 ras-1-1 ras-1-2 ras-1-3 ras-2 rent-1 rgb-1 rrg-1 sod-1 vvd-1 vvd-2 wc-1 wc-2
+for gene in acr-2 adv-1 ccg-1 ccg-6 ccg-7 ccg-8 ccg-9 Chd3 chol-1 ck-1a cka-1 cka-2 ckb-1-1 ckb-1-2 con-6 con-10 crf6-1 crf10-1 csn-1 csn-2 csn-4 csn-5-1 csn-5-2 csn-6 csn-7a csp-2 cys-9 ecm33 frh frh-2 frq fwd-1 isw-1 nit-2 pph-3-1 pph-3-2 pph-3-3 pph-3-4 prd-4-1 prd-4-2 ras-1-1 ras-1-2 ras-1-3 ras-2 rent-1 rgb-1 rrg-1 sod-1 vvd-1 vvd-2 wc-1 wc-2
   do mafft Upust_${gene}_combined1.fasta > Upust_${gene}_combined1.msa
   raxmlHPC -m GTRGAMMA  -s Upust_${gene}_combined1.msa -n Upust_${gene}_combined1_tree
 done
@@ -297,7 +299,7 @@ Then, use the CleanStopCodons.bf batch file that is a part of the HyPhy pipeline
 
 ```{bash}
 
-hyphy ~/Dropbox\ \(Senckenberg\)/Valim/04_Bioinformatic_work/05_Population_genetics/10_hyphy_analysis/hyphy-develop/res/TemplateBatchFiles/CleanStopCodons.bf
+hyphy /hyphy-develop/res/TemplateBatchFiles/CleanStopCodons.bf
 
 ```
 
@@ -323,11 +325,10 @@ done
 
 # for temperatuere genes:
 
-for gene in CCP1 DED1 hsp30 KIN28 LSP1 PRP28 PYC1 cut-1b cat-4 GET3 MKC1 NTH1_1 PRF1 DBP3 LSP1b cr-1 KAR2 PAN2 BUR1 gcy-3 HSP82 PHO85 SSB1 cat1b xyl1 DBP4 DBP10 wos2 gcy-1a HSP78_1 PRP5 CAT1 DBP2 SFL1 CTA8 gcy-1b SSA2 FBP1 DES1 SSC1 GSY1 LSK1 MRH4 dak1 HSP98 cut-1a GPA1 GPA1_2 GPH1 SSE1 NTH1_1
+for gene in CCP1 DED1 hsp30 KIN28 LSP1 PRP28 PYC1 cut-1b cat-4 GET3 MKC1 NTH1_1 PRF1 DBP3 LSP1b cr-1 KAR2 PAN2 BUR1 gcy-3 HSP82 PHO85 SSB1 cat1b xyl1 DBP4 DBP10 wos2 gcy-1a HSP78_1 PRP5 CAT1 DBP2 SFL1 CTA8 gcy-1b SSA2 FBP1 DES1 SSC1 GSY1 LSK1 MRH4 dak1 HSP98 cut-1a GPA1 GPA1_2 GPH1 SSE1 NTH1_1 HOG1 GPA2
   do echo ${gene}
   hyphy busted --alignment Uph_${gene}_combined1_cleaned.msa --tree Uph_${gene}_combined1_cleaned_RAxML_Tree.nex | tail -n 1
 done
-
 
 ```
 
@@ -339,7 +340,7 @@ hyphy busted --alignment Upust_ccg-9_combined1_cleaned.msa --tree Upust_ccg-9_co
 
 # for circadian genes
 
-for gene in acr-2 adv-1 ccg-1 ccg-7 ccg-9 Chd3 chol-1 ck-1a cka-1 cka-2 ckb-1-1 ckb-1-2 con-6 con-10 crf6-1 crf10-1 csn-1 csn-2 csn-4 csn-5-1 csn-5-2 csn-6 csn-7a csp-2 cys-9 ecm33 frh frh-2 frq fwd-1 isw-1 nit-2 pph-3-1 pph-3-2 pph-3-3 pph-3-4 prd-4-1 prd-4-2 ras-1-1 ras-1-2 ras-1-3 ras-2 rent-1 rgb-1 rrg-1 sod-1 vvd-1 vvd-2 wc-1 wc-2
+for gene in acr-2 adv-1 ccg-1 ccg-6 ccg-7 ccg-8 ccg-9 Chd3 chol-1 ck-1a cka-1 cka-2 ckb-1-1 ckb-1-2 con-6 con-10 crf6-1 crf10-1 csn-1 csn-2 csn-4 csn-5-1 csn-5-2 csn-6 csn-7a csp-2 cys-9 ecm33 frh frh-2 frq fwd-1 isw-1 nit-2 pph-3-1 pph-3-2 pph-3-3 pph-3-4 prd-4-1 prd-4-2 ras-1-1 ras-1-2 ras-1-3 ras-2 rent-1 rgb-1 rrg-1 sod-1 vvd-1 vvd-2 wc-1 wc-2
   do echo ${gene}
   hyphy busted --alignment Upust_${gene}_combined1_cleaned.msa --tree Upust_${gene}_combined1_RAxML_Tree.nex | tail -n 1
 done
@@ -351,10 +352,4 @@ for gene in hog1 cut-1b xyl1 hsp90 GNAQ hsp30 SSB1 fbp-1 hsp70b treB bipA acu-6 
   hyphy busted --alignment Upust_${gene}_combined1_cleaned.msa --tree Upust_${gene}_combined1_cleaned_RAxML_Tree.nex | tail -n 1
 done
 
-
-
 ```
-
-
-
-
