@@ -15,9 +15,7 @@ This repository contains the analyses for the manuscript:
 
 # Data availability
 
-The raw pool-seq data for the analysis can be found here:
-
-The two reference genomes used in this analysis and their annotations can be found here (U. pustulata) and here (U. phaea).
+Raw sequence reads were deposited in the [European Nucleotide Archive](https://www.ebi.ac.uk/ena/browser/home), under the BioProject PRJEB11664 for the Umbilicaria pustulata reference genome and PRJNA820300 for Umbilicaria phaea reference genome. The data for this study have been deposited in the European Nucleotide Archive (ENA) at EMBL-EBI under accession numbers PRJEB69222 (U. pustulata Spanish gradients), PRJEB11664 (U. pustulata Sardinia gradient) and PRJNA693984 (U. phaea gradients)
 
 # Required software
 
