@@ -1,4 +1,4 @@
-# lichen_circadian_gradients
+# Circadian clock- and temperature-associated genes contribute to overall genomic differentiation along elevation in lichenized fungi
 
 ![splash](FigureS1.png)
 
