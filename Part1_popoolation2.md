@@ -12,13 +12,13 @@ knitr::opts_chunk$set(echo = TRUE)
 Populations used:
 
 Umbilicaria pustulata:
-- Upust_IT_Pool1-6: Mt. Limbara in Sardinia, Italy (IT1-4: Medit., IT5: mid, IT6: cold temperate)
-- Upust_ESi_Pool1-3:
-- Upust_ESii_Pool1-6: 
+- Upust_IT_Pool1-6: Mt. Limbara in Sardinia, Italy 
+- Upust_ESi_Pool1-3: Sierra de Gredos, Spain
+- Upust_ESii_Pool1-6: Puerto de Pico, Spain
 
 U. phaea:
-- Uph16-19: Sierra Nevada (16&17: Medit., 18: mid, 19: cold temperate)
-- Uph22-28: Mt. Jacinto (22-23-24: Medit., 25: mid, 26-28: cold temperate) 
+- Uph16-19: Sierra Nevada
+- Uph22-28: Mt. Jacinto 
 
 # Introduction: running Pool-seq data analysis with popoolation2
 
