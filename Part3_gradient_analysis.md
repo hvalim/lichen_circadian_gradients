@@ -14,8 +14,8 @@ knitr::opts_chunk$set(echo = TRUE)
 First loading packages and data for visualization of (major) allele frequencies across the three gradients:
 
 1. IT: Italy (Limbara, Sardinia)
-2. ES1: Spain 1 (Gredos)
-3. ES2: Spain 2 (Puerto de Pico)
+2. ESi: Spain 1 (Gredos)
+3. ESii: Spain 2 (Puerto de Pico)
 
 To get the data for the number of each specific base pair, we turn to the sync file, the main input files for popoolation2. They contain the allele frequencies for every population and every base in the reference genome. We can then extract just the alleles that we identified from the *_rc file that demonstrated a similar turnover in the identity of the major allele (by looking at the "major_allele.maa" column).
 
