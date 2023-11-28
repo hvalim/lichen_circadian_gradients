@@ -4,11 +4,8 @@
 
 This repository contains the analyses for the manuscript: 
 
-> Valim H., Dal Grande F., Wong E., Schmitt I. Circadian clock- and temperature-associated genes contribute to overall genomic differentiation along elevation in lichenized fungi.
+> Valim H. *, Dal Grande F., Wong E., Schmitt I *. Circadian clock- and temperature-associated genes contribute to overall genomic differentiation along elevation in lichenized fungi.
 
-# Contact
-
-**Henrique Valim**\
 
 # Contents
 
